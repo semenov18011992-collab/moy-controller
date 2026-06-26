@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOY Controller SCADA</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>🔥 MOY Controller v4.0 — SCADA</h1>
+        <div class="status">
+            <span class="dot"></span>
+            <span id="statusText">Подключено</span>
+            <span id="lastUpdate" style="margin-left:15px;color:#556688;">Обновление: --</span>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button class="tab active" data-tab="dashboard">📊 Дашборд</button>
+        <button class="tab" data-tab="graphs">📈 Графики</button>
+        <button class="tab" data-tab="settings">⚙️ Настройки</button>
+    </div>
+
+    <!-- Вкладка Дашборд -->
+    <div class="tab-content active" id="tab-dashboard">
+        <div class="stats-bar">
+            <div class="stat-item">Всего пинов: <span id="totalPins">0</span></div>
+            <div class="stat-item">Активных: <span id="activePins">0</span></div>
+            <div class="stat-item">Выходы включены: <span id="outputsOn">0</span></div>
+        </div>
+        <div class="pins-grid" id="pinsGrid"></div>
+    </div>
+
+    <!-- Вкладка Графики -->
+    <div class="tab-content" id="tab-graphs">
+        <div class="graph-container">
+            <div class="graph-card">
+                <div class="graph-title">📈 Температура</div>
+                <div style="height:300px;">
+                    <canvas id="tempChart"></canvas>
+                </div>
+                <div style="margin-top:10px;">
+                    <select id="pinSelect" onchange="loadHistory()"></select>
+                    <button onclick="loadHistory()">🔄 Обновить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вкладка Настройки -->
+    <div class="tab-content" id="tab-settings">
+        <div class="settings-card">
+            <h3>⚙️ Системная информация</h3>
+            <div class="info-row"><span class="label">Платформа:</span><span class="value">ESP32-P4</span></div>
+            <div class="info-row"><span class="label">Прошивка:</span><span class="value">v1.5-scada-working</span></div>
+            <div class="info-row"><span class="label">Свободная RAM:</span><span class="value" id="freeRam">--</span></div>
+            <div style="margin-top:15px;">
+                <button onclick="location.reload()">🔄 Перезагрузить</button>
+                <button onclick="resetController()" style="background:#ff4444;">⚠️ Сбросить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>

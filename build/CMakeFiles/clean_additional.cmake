@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 
 if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "")
   file(REMOVE_RECURSE
+  "app.js.S"
   "bootloader\\bootloader.bin"
   "bootloader\\bootloader.elf"
   "bootloader\\bootloader.map"
@@ -14,11 +15,13 @@ if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "")
   "flash_bootloader_args"
   "flash_project_args"
   "flasher_args.json"
+  "index.html.S"
   "ldgen_libraries"
   "ldgen_libraries.in"
   "moy_controller.bin"
   "moy_controller.map"
   "project_elf_src_esp32p4.c"
+  "style.css.S"
   "x509_crt_bundle.S"
   )
 endif()

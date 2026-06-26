@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "moy_controller",
-    "project_version":    "v1.4-sensor-added-dirty",
+    "project_version":    "v1.5-scada-working-1-g3cb67a2-dirty",
     "project_path":       "C:/Users/User/Documents/GitHub/moy-controller",
     "idf_path":           "C:/Espressif/frameworks/esp-idf-v5.5.4",
     "build_dir":          "C:/Users/User/Documents/GitHub/moy-controller/build",
@@ -1255,7 +1255,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__esp_hosted" ],
             "file": "C:/Users/User/Documents/GitHub/moy-controller/build/esp-idf/main/libmain.a",
-            "sources": [ "C:/Users/User/Documents/GitHub/moy-controller/main/main.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/sensor_module.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/config.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/core.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/module.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/pcf8574.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/platform.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/webserver.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/modules/module_gpio.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/modules/module_web.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/modules/module_test.c" ],
+            "sources": [ "C:/Users/User/Documents/GitHub/moy-controller/main/main.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/sensor_module.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/config.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/core.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/module.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/pcf8574.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/platform.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/webserver.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/modules/module_gpio.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/modules/module_web.c", "C:/Users/User/Documents/GitHub/moy-controller/main/src/modules/module_test.c", "C:/Users/User/Documents/GitHub/moy-controller/build/index.html.S", "C:/Users/User/Documents/GitHub/moy-controller/build/style.css.S", "C:/Users/User/Documents/GitHub/moy-controller/build/app.js.S" ],
             "include_dirs": [ "include" ]
         },
         "mbedtls": {

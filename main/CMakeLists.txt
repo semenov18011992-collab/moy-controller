@@ -12,4 +12,8 @@ idf_component_register(SRCS
     src/modules/module_test.c
     INCLUDE_DIRS include
     REQUIRES nvs_flash esp_netif esp_event esp_http_server driver lwip spi_flash freertos esp_driver_ledc json
+    EMBED_FILES
+        ../data/index.html
+        ../data/css/style.css
+        ../data/js/app.js
 )

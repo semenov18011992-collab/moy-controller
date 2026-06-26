@@ -1,23 +1,148 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-    font-family: Arial, sans-serif;
-    background: #1a1a2e;
-    color: #fff;
-    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #0a0e17;
+    color: #e0e0e0;
     padding: 20px;
 }
-header {
+.header {
+    background: linear-gradient(135deg, #0f3460, #16213e);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid #1a4a7a;
+}
+.header h1 { color: #00d4ff; font-size: 28px; font-weight: 300; }
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #00ff88;
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.tab {
+    padding: 10px 25px;
     background: #16213e;
-    padding: 10px 20px;
+    border: 1px solid #1f3a5f;
     border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #8899bb;
+    font-size: 14px;
 }
-nav a {
-    color: #00d4ff;
-    margin-left: 20px;
-    text-decoration: none;
+.tab:hover { border-color: #00d4ff; color: #fff; }
+.tab.active { background: #0f3460; border-color: #00d4ff; color: #00d4ff; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.stats-bar {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 10px 0;
 }
-main {
-    margin-top: 20px;
+.stat-item {
+    background: #1a1a2e;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #8899bb;
+}
+.stat-item span { color: #fff; font-weight: bold; }
+
+.pins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+.pin-card {
+    background: #16213e;
+    border-radius: 12px;
+    padding: 15px 20px;
+    border: 1px solid #1f3a5f;
+    transition: all 0.3s;
+}
+.pin-card:hover { border-color: #00d4ff; }
+.pin-card .pin-name { font-size: 12px; color: #8899bb; text-transform: uppercase; letter-spacing: 1px; }
+.pin-card .pin-value { font-size: 28px; font-weight: bold; margin: 5px 0; }
+.pin-card .pin-value.sensor { color: #00d4ff; }
+.pin-card .pin-value.actuator { color: #ffaa44; }
+.pin-card .pin-value.on { color: #00ff88; }
+.pin-card .pin-value.off { color: #556688; }
+.pin-card .pin-value.alarm { color: #ff4444; animation: blink 1s infinite; }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+.pin-card .pin-id { font-size: 11px; color: #445566; margin-top: 5px; }
+.pin-card .pin-actions { margin-top: 10px; display: flex; gap: 5px; }
+.pin-card .pin-actions button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+.btn-on { background: #00ff88; color: #0a0e17; }
+.btn-on:hover { background: #00cc6a; transform: scale(1.05); }
+.btn-off { background: #ff4444; color: #fff; }
+.btn-off:hover { background: #cc3333; transform: scale(1.05); }
+
+.graph-container { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.graph-card {
+    background: #16213e;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #1f3a5f;
+}
+.graph-title { font-size: 16px; color: #8899bb; margin-bottom: 15px; }
+
+.settings-card {
+    background: #16213e;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #1f3a5f;
+    max-width: 500px;
+}
+.settings-card h3 { color: #00d4ff; margin-bottom: 15px; }
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #1a2a3a;
+}
+.info-row .label { color: #8899bb; }
+.info-row .value { color: #fff; }
+.settings-card button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 10px;
+    background: #0f3460;
+    color: #fff;
+}
+.settings-card button:hover { background: #1a4a7a; }
+
+select {
+    background: #1a1a2e;
+    color: #fff;
+    border: 1px solid #1f3a5f;
+    padding: 8px 15px;
+    border-radius: 6px;
+    margin-right: 10px;
 }
