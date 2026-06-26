@@ -1,11 +1,12 @@
 idf_component_register(SRCS
     main.c
+    src/config.c
     src/core.c
     src/module.c
-    src/platform.c
-    src/config.c
-    src/webserver.c
     src/pcf8574.c
+    src/platform.c
+    src/sensor_module.c
+    src/webserver.c
     src/modules/module_gpio.c
     src/modules/module_web.c
     src/modules/module_test.c
