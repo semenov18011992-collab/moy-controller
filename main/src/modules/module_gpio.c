@@ -234,11 +234,10 @@ static void gpio_update(void) {
 }
 static void gpio_stop(void) { LOG_INFO("GPIO", "Stopped"); }
 
-module_t module_gpio = {
+module_t gpio_module = {
     .name = "gpio",
-    .version = "2.0.0",
+    .version = "v2.0.0",
     .init = gpio_init,
     .start = gpio_start,
-    .update = gpio_update,
-    .stop = gpio_stop
+    .update = gpio_update
 };

@@ -6,11 +6,11 @@
 #include "nvs_flash.h"
 #include "driver/gpio.h"
 #include "driver/i2c.h"
-#include "driver/spi_master.h"
-#include "esp_wifi.h"
-#include "esp_eth.h"
-#include "esp_eth_phy.h"
-#include "esp_eth_mac.h"
+//#include "driver/spi_master.h"
+//#include "esp_wifi.h"
+//#include "esp_eth.h"
+//#include "esp_eth_phy.h"
+//#include "esp_eth_mac.h"
 
 static const char *TAG = "HAL_ESP32C6";
 

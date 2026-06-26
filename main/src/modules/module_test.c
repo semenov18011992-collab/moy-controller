@@ -41,11 +41,13 @@ static void test_stop(void) {
     LOG_INFO("TEST", "Stopped");
 }
 
-module_t module_test = {
+// В конце файла — исправленная структура
+module_t test_module = {
     .name = "test",
-    .version = "1.0.0",
+    .version = "v1.0.0",
     .init = test_init,
     .start = test_start,
     .update = test_update,
-    .stop = test_stop
+    .stop = test_stop,
+ 
 };

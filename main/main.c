@@ -8,6 +8,7 @@
 #include "logger.h"
 #include "esp_netif.h"
 #include "esp_event.h"
+#include "sensor_module.h"   // <-- ДОБАВИТЬ!
 
 void app_main(void) {
     // Инициализация NVS
@@ -22,10 +23,15 @@ void app_main(void) {
     core_init();
 
     // Инициализация сетевого стека (для HTTP-сервера)
-ESP_ERROR_CHECK(esp_netif_init());
-ESP_ERROR_CHECK(esp_event_loop_create_default());
-    
-// Запуск модулей
+    ESP_ERROR_CHECK(esp_netif_init());
+    ESP_ERROR_CHECK(esp_event_loop_create_default());
+
+    // === РЕГИСТРАЦИЯ МОДУЛЯ sensor_module ===
+    ESP_LOGI("MAIN", "=== BEFORE REGISTER ===");
+    // module_register(&sensor_module);
+    ESP_LOGI("MAIN", "=== AFTER REGISTER ===");
+
+    // Запуск модулей
     module_start_all();
 
     LOG_INFO("MAIN", "System ready!");

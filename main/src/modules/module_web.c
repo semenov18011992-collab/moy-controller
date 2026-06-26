@@ -19,7 +19,7 @@ static void web_stop(void) {
     webserver_stop(); 
 }
 
-module_t module_web = {
+module_t web_module = {
     .name = "web",
     .version = "1.0.0",
     .init = web_init,

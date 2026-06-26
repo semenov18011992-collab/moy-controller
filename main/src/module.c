@@ -1,102 +1,83 @@
 #include "module.h"
-#include "logger.h"
+#include "esp_log.h"
 #include <string.h>
-#include <stdlib.h>
 
-#define MAX_MODULES 32
-static module_t* g_modules[MAX_MODULES];
-static int g_module_count = 0;
+#define TAG "MODULE"
+#define MAX_MODULES 16
 
-// Внешние объявления модулей
-extern module_t module_gpio;
-extern module_t module_web;
-extern module_t module_test;
+static module_t* modules[MAX_MODULES];
+static int module_count = 0;
 
 bool module_register(module_t* mod) {
-    if (g_module_count >= MAX_MODULES) {
-        LOG_ERROR("MODULE", "Too many modules! Max: %d", MAX_MODULES);
+    if (module_count >= MAX_MODULES) {
+        ESP_LOGE(TAG, "Module registry full!");
         return false;
     }
-    for (int i = 0; i < g_module_count; i++) {
-        if (strcmp(g_modules[i]->name, mod->name) == 0) {
-            LOG_WARN("MODULE", "Module '%s' already registered", mod->name);
+    if (!mod || !mod->name) {
+        ESP_LOGE(TAG, "Invalid module!");
+        return false;
+    }
+    for (int i = 0; i < module_count; i++) {
+        if (strcmp(modules[i]->name, mod->name) == 0) {
+            ESP_LOGW(TAG, "Module '%s' already registered!", mod->name);
             return false;
         }
     }
-    g_modules[g_module_count++] = mod;
-    mod->state = MODULE_STATE_LOADED;
-    LOG_INFO("MODULE", "Registered: %s v%s", mod->name, mod->version);
+    modules[module_count++] = mod;
+    ESP_LOGI(TAG, "Registered: %s %s", mod->name, mod->version ? mod->version : "");
     return true;
 }
 
 bool module_init_all(void) {
-    LOG_INFO("MODULE", "Initializing all modules...");
-    for (int i = 0; i < g_module_count; i++) {
-        module_t* mod = g_modules[i];
+    ESP_LOGI(TAG, "Initializing all modules...");
+    for (int i = 0; i < module_count; i++) {
+        module_t* mod = modules[i];
         if (mod->init) {
-            if (!mod->init()) {
-                LOG_ERROR("MODULE", "Failed to init: %s", mod->name);
-                mod->state = MODULE_STATE_ERROR;
+            if (mod->init()) {
+                ESP_LOGI(TAG, "Init OK: %s", mod->name);
+            } else {
+                ESP_LOGE(TAG, "Init FAILED: %s", mod->name);
                 return false;
             }
-            mod->state = MODULE_STATE_INITIALIZED;
-            LOG_INFO("MODULE", "Init OK: %s", mod->name);
         }
     }
     return true;
 }
 
 bool module_start_all(void) {
-    LOG_INFO("MODULE", "Starting all modules...");
-    for (int i = 0; i < g_module_count; i++) {
-        module_t* mod = g_modules[i];
+    ESP_LOGI(TAG, "Starting all modules...");
+    for (int i = 0; i < module_count; i++) {
+        module_t* mod = modules[i];
         if (mod->start) {
-            if (!mod->start()) {
-                LOG_ERROR("MODULE", "Failed to start: %s", mod->name);
-                mod->state = MODULE_STATE_ERROR;
+            if (mod->start()) {
+                ESP_LOGI(TAG, "Start OK: %s", mod->name);
+            } else {
+                ESP_LOGE(TAG, "Start FAILED: %s", mod->name);
                 return false;
             }
-            mod->state = MODULE_STATE_RUNNING;
-            LOG_INFO("MODULE", "Start OK: %s", mod->name);
         }
     }
     return true;
 }
 
 void module_update_all(void) {
-    for (int i = 0; i < g_module_count; i++) {
-        module_t* mod = g_modules[i];
-        if (mod->state == MODULE_STATE_RUNNING && mod->update) {
+    for (int i = 0; i < module_count; i++) {
+        module_t* mod = modules[i];
+        if (mod->update) {
             mod->update();
         }
     }
 }
 
-void module_stop_all(void) {
-    LOG_INFO("MODULE", "Stopping all modules...");
-    for (int i = g_module_count - 1; i >= 0; i--) {
-        module_t* mod = g_modules[i];
-        if (mod->stop) mod->stop();
-        mod->state = MODULE_STATE_UNLOADED;
-    }
-}
-
-module_t* module_get(const char* name) {
-    for (int i = 0; i < g_module_count; i++) {
-        if (strcmp(g_modules[i]->name, name) == 0)
-            return g_modules[i];
-    }
-    return NULL;
-}
-
-bool module_is_enabled(const char* name) {
-    module_t* mod = module_get(name);
-    return mod && mod->state == MODULE_STATE_RUNNING;
-}
-
 void module_register_builtins(void) {
-    LOG_INFO("MODULE", "Registering built-in modules...");
-    module_register(&module_gpio);
-    module_register(&module_web);
-    module_register(&module_test);
+    // Внешние объявления модулей
+    extern module_t gpio_module;
+    extern module_t web_module;
+    extern module_t test_module;
+    extern module_t sensor_module;
+    
+    module_register(&gpio_module);
+    module_register(&web_module);
+    module_register(&test_module);
+    module_register(&sensor_module);
 }
