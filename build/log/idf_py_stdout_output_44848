@@ -1,0 +1,105 @@
+Command: C:\Espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.4\tools/idf_monitor.py -p COM6 -b 115200 --toolchain-prefix riscv32-esp-elf- --target esp32p4 --revision 0 --decode-panic backtrace C:\Users\User\Documents\GitHub\moy-controller\build\moy_controller.elf C:\Users\User\Documents\GitHub\moy-controller\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.4\tools\idf.py' '-p' 'COM6'
+ESP-ROM:esp32p4-eco2-20240710
+Build:Jul 10 2024
+rst:0x1 (POWERON),boot:0x10f (SPI_FAST_FLASH_BOOT)
+SPI mode:DIO, clock div:2
+load:0x4ff33ce0,len:0x15e4
+load:0x4ff29ed0,len:0xe28
+load:0x4ff2cbd0,len:0x3518
+entry 0x4ff29eda
+[0;32mI (27) boot: ESP-IDF v5.5.4-dirty 2nd stage bootloader[0m
+[0;32mI (28) boot: compile time Jun 26 2026 11:07:35[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v1.3[0m
+[0;32mI (31) boot: efuse block revision: v0.3[0m
+[0;32mI (35) boot.esp32p4: SPI Speed      : 40MHz[0m
+[0;32mI (39) boot.esp32p4: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32p4: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (53) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (60) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (66) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (73) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (80) boot: End of partition table[0m
+[0;32mI (83) esp_image: segment 0: paddr=00010020 vaddr=40050020 size=11c94h ( 72852) map[0m
+[0;32mI (106) esp_image: segment 1: paddr=00021cbc vaddr=30100000 size=00044h (    68) load[0m
+[0;32mI (108) esp_image: segment 2: paddr=00021d08 vaddr=4ff00000 size=0e310h ( 58128) load[0m
+[0;32mI (125) esp_image: segment 3: paddr=00030020 vaddr=40000020 size=42688h (272008) map[0m
+[0;32mI (184) esp_image: segment 4: paddr=000726b0 vaddr=4ff0e310 size=0328ch ( 12940) load[0m
+[0;32mI (189) esp_image: segment 5: paddr=00075944 vaddr=4ff11600 size=0260ch (  9740) load[0m
+[0;32mI (197) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (197) boot: Disabling RNG early entropy source...[0m
+[0;32mI (211) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: GPIO 38 and 37 are used as console UART I/O pins[0m
+[0;32mI (222) cpu_start: Pro cpu start user code[0m
+[0;32mI (222) cpu_start: cpu freq: 360000000 Hz[0m
+[0;32mI (224) app_init: Application information:[0m
+[0;32mI (227) app_init: Project name:     moy_controller[0m
+[0;32mI (232) app_init: App version:      v1.0-working-dirty[0m
+[0;32mI (237) app_init: Compile time:     Jun 26 2026 11:06:30[0m
+[0;32mI (242) app_init: ELF file SHA256:  5d82881e4...[0m
+[0;32mI (246) app_init: ESP-IDF:          v5.5.4-dirty[0m
+[0;32mI (250) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (254) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (258) efuse_init: Chip rev:         v1.3[0m
+[0;32mI (262) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (269) heap_init: At 4FF162E0 len 00024CE0 (147 KiB): RETENT_RAM[0m
+[0;32mI (274) heap_init: At 4FF3AFC0 len 00004BF0 (18 KiB): RAM[0m
+[0;32mI (279) heap_init: At 4FF40000 len 00060000 (384 KiB): RAM[0m
+[0;32mI (285) heap_init: At 50108080 len 00007F80 (31 KiB): RTCRAM[0m
+[0;32mI (290) heap_init: At 30100044 len 00001FBC (7 KiB): TCM[0m
+[0;33mW (296) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (308) spi_flash: detected chip: generic[0m
+[0;32mI (312) spi_flash: flash io: dio[0m
+[0;33mW (315) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (327) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (337) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (343) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (350) main_task: Started on CPU0[0m
+[0;32mI (360) main_task: Calling app_main()[0m
+[0;32mI (370) CORE: === MOY CONTROLLER v1.0.0 ===[0m
+[0;32mI (370) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (370) PLATFORM: Chip: ESP32-P4[0m
+[0;32mI (370) PLATFORM: Profile: ULTRA[0m
+[0;32mI (370) PLATFORM: CPU: 400 MHz[0m
+[0;32mI (380) PLATFORM: Free RAM: 571 KB[0m
+[0;32mI (380) PLATFORM: WiFi 6: YES[0m
+[0;32mI (380) PLATFORM: BLE: YES[0m
+[0;32mI (390) PLATFORM: USB OTG: YES[0m
+[0;32mI (390) CORE: Platform: ESP32-P4[0m
+[0;32mI (390) CORE: CPU: 400 MHz, Free RAM: 571 KB[0m
+[0;32mI (400) CONFIG: Configuration loaded[0m
+[0;32mI (400) MODULE: Registering built-in modules...[0m
+[0;32mI (400) MODULE: Registered: gpio v2.0.0[0m
+[0;32mI (410) MODULE: Registered: web v1.0.0[0m
+[0;32mI (410) MODULE: Registered: test v1.0.0[0m
+[0;32mI (410) MODULE: Initializing all modules...[0m
+[0;32mI (420) GPIO: Init GPIO module (v6.0)[0m
+[0;32mI (420) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (430) PLATFORM: Chip: ESP32-P4[0m
+[0;32mI (430) PLATFORM: Profile: ULTRA[0m
+[0;32mI (430) PLATFORM: CPU: 400 MHz[0m
+[0;32mI (430) PLATFORM: Free RAM: 571 KB[0m
+[0;32mI (440) PLATFORM: WiFi 6: YES[0m
+[0;32mI (440) PLATFORM: BLE: YES[0m
+[0;32mI (440) PLATFORM: USB OTG: YES[0m
+[0;32mI (450) GPIO: Initializing 50 internal pins[0m
+[0;32mI (450) GPIO: Scanning for PCF8574...[0m
+[0;32mI (450) PCF8574: I2C initialized[0m
+[0;32mI (460) GPIO: Found 0 PCF8574 expanders[0m
+[0;32mI (460) GPIO: Total pins: 50[0m
+[0;32mI (460) MODULE: Init OK: gpio[0m
+[0;32mI (470) WEB: Init[0m
+[0;32mI (470) MODULE: Init OK: web[0m
+[0;32mI (470) TEST: Test module init[0m
+[0;32mI (470) MODULE: Init OK: test[0m
+[0;32mI (470) CORE: System ready! Heap: 567 KB[0m
+[0;32mI (480) MODULE: Starting all modules...[0m
+[0;32mI (480) GPIO: Started[0m
+[0;32mI (480) MODULE: Start OK: gpio[0m
+[0;32mI (490) WEBSERVER: Started on port 80[0m
+[0;32mI (490) MODULE: Start OK: web[0m
+[0;32mI (490) TEST: Started[0m
+[0;32mI (490) MODULE: Start OK: test[0m
+[0;32mI (500) MAIN: System ready![0m
