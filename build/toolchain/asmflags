@@ -1,2 +1,5 @@
--mabi=ilp32f
--march=rv32imafc_zicsr_zifencei_xesppie
+-Wno-frame-address
+-mlongcalls
+-fno-builtin-memcpy
+-fno-builtin-memset
+-fno-builtin-bzero

@@ -20,7 +20,7 @@ if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "")
   "ldgen_libraries.in"
   "moy_controller.bin"
   "moy_controller.map"
-  "project_elf_src_esp32p4.c"
+  "project_elf_src_esp32.c"
   "style.css.S"
   "x509_crt_bundle.S"
   )

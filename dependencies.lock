@@ -17,5 +17,5 @@ direct_dependencies:
 - espressif/esp_hosted
 - idf
 manifest_hash: f730a9bf64733a438ea2a0dae4acd8ba698725b951e0ddf5f5d0b4bce03b1fc2
-target: esp32p4
+target: esp32
 version: 2.0.0

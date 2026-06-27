@@ -5,15 +5,189 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOY Controller SCADA</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #0a0e17;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #0f3460, #16213e);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #1a4a7a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .header h1 { color: #00d4ff; font-size: 28px; font-weight: 300; }
+        .status { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #00ff88;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .tab {
+            padding: 10px 25px;
+            background: #16213e;
+            border: 1px solid #1f3a5f;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #8899bb;
+            font-size: 14px;
+        }
+        .tab:hover { border-color: #00d4ff; color: #fff; }
+        .tab.active { background: #0f3460; border-color: #00d4ff; color: #00d4ff; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .stats-bar {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding: 10px 0;
+        }
+        .stat-item {
+            background: #1a1a2e;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #8899bb;
+        }
+        .stat-item span { color: #fff; font-weight: bold; }
+
+        .pins-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .pin-card {
+            background: #16213e;
+            border-radius: 12px;
+            padding: 15px 20px;
+            border: 1px solid #1f3a5f;
+            transition: all 0.3s;
+        }
+        .pin-card:hover { border-color: #00d4ff; transform: translateY(-2px); }
+        .pin-card .pin-name { font-size: 12px; color: #8899bb; text-transform: uppercase; letter-spacing: 1px; }
+        .pin-card .pin-value { font-size: 28px; font-weight: bold; margin: 5px 0; }
+        .pin-card .pin-value.sensor { color: #00d4ff; }
+        .pin-card .pin-value.actuator { color: #ffaa44; }
+        .pin-card .pin-value.input { color: #aa88ff; }
+        .pin-card .pin-value.on { color: #00ff88; }
+        .pin-card .pin-value.off { color: #556688; }
+        .pin-card .pin-value.alarm { color: #ff4444; animation: blink 1s infinite; }
+        @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+        .pin-card .pin-type {
+            font-size: 11px;
+            padding: 2px 10px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        .pin-card .pin-type.sensor { background: #0f3460; color: #00d4ff; }
+        .pin-card .pin-type.actuator { background: #3d1f00; color: #ffaa44; }
+        .pin-card .pin-type.input { background: #2a1f4a; color: #aa88ff; }
+        .pin-card .pin-actions { margin-top: 10px; display: flex; gap: 5px; }
+        .pin-card .pin-actions button {
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+        .btn-on { background: #00ff88; color: #0a0e17; }
+        .btn-on:hover { background: #00cc6a; transform: scale(1.05); }
+        .btn-off { background: #ff4444; color: #fff; }
+        .btn-off:hover { background: #cc3333; transform: scale(1.05); }
+        .btn-disabled { background: #2a2a3a; color: #556688; cursor: not-allowed; }
+
+        .graph-container { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .graph-card {
+            background: #16213e;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #1f3a5f;
+        }
+        .graph-title { font-size: 16px; color: #8899bb; margin-bottom: 15px; }
+
+        /* Группировка */
+        .group-title {
+            font-size: 18px;
+            color: #00d4ff;
+            margin: 20px 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #1a4a7a;
+        }
+        .group-title:first-of-type { margin-top: 0; }
+        
+        .settings-card {
+            background: #16213e;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #1f3a5f;
+            max-width: 500px;
+        }
+        .settings-card h3 { color: #00d4ff; margin-bottom: 15px; }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #1a2a3a;
+        }
+        .info-row .label { color: #8899bb; }
+        .info-row .value { color: #fff; }
+        .settings-card button {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-right: 10px;
+            background: #0f3460;
+            color: #fff;
+        }
+        .settings-card button:hover { background: #1a4a7a; }
+        select, input {
+            background: #1a1a2e;
+            color: #fff;
+            border: 1px solid #1f3a5f;
+            padding: 8px 15px;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .pins-grid { grid-template-columns: 1fr 1fr; }
+            .header h1 { font-size: 20px; }
+        }
+    </style>
 </head>
 <body>
     <div class="header">
         <h1>🔥 MOY Controller v4.0 — SCADA</h1>
         <div class="status">
-            <span class="dot"></span>
-            <span id="statusText">Подключено</span>
-            <span id="lastUpdate" style="margin-left:15px;color:#556688;">Обновление: --</span>
+            <span><span class="dot"></span><span id="statusText">Подключено</span></span>
+            <span id="ipDisplay" style="color:#556688;">IP: --</span>
+            <span id="lastUpdate" style="color:#556688;">Обновление: --</span>
         </div>
     </div>
 
@@ -23,25 +197,25 @@
         <button class="tab" data-tab="settings">⚙️ Настройки</button>
     </div>
 
-    <!-- Вкладка Дашборд -->
+    <!-- Дашборд -->
     <div class="tab-content active" id="tab-dashboard">
         <div class="stats-bar">
             <div class="stat-item">Всего пинов: <span id="totalPins">0</span></div>
-            <div class="stat-item">Активных: <span id="activePins">0</span></div>
+            <div class="stat-item">Датчики: <span id="sensorCount">0</span></div>
+            <div class="stat-item">Выходы: <span id="actuatorCount">0</span></div>
+            <div class="stat-item">Входы: <span id="inputCount">0</span></div>
             <div class="stat-item">Выходы включены: <span id="outputsOn">0</span></div>
         </div>
-        <div class="pins-grid" id="pinsGrid"></div>
+        <div id="pinsContainer"></div>
     </div>
 
-    <!-- Вкладка Графики -->
+    <!-- Графики -->
     <div class="tab-content" id="tab-graphs">
         <div class="graph-container">
             <div class="graph-card">
                 <div class="graph-title">📈 Температура</div>
-                <div style="height:300px;">
-                    <canvas id="tempChart"></canvas>
-                </div>
-                <div style="margin-top:10px;">
+                <div style="height:300px;"><canvas id="tempChart"></canvas></div>
+                <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
                     <select id="pinSelect" onchange="loadHistory()"></select>
                     <button onclick="loadHistory()">🔄 Обновить</button>
                 </div>
@@ -49,12 +223,13 @@
         </div>
     </div>
 
-    <!-- Вкладка Настройки -->
+    <!-- Настройки -->
     <div class="tab-content" id="tab-settings">
         <div class="settings-card">
             <h3>⚙️ Системная информация</h3>
-            <div class="info-row"><span class="label">Платформа:</span><span class="value">ESP32-P4</span></div>
-            <div class="info-row"><span class="label">Прошивка:</span><span class="value">v1.5-scada-working</span></div>
+            <div class="info-row"><span class="label">Платформа:</span><span class="value">ESP32</span></div>
+            <div class="info-row"><span class="label">Прошивка:</span><span class="value">v2.0-scada-full</span></div>
+            <div class="info-row"><span class="label">Wi-Fi IP:</span><span class="value" id="wifiIP">--</span></div>
             <div class="info-row"><span class="label">Свободная RAM:</span><span class="value" id="freeRam">--</span></div>
             <div style="margin-top:15px;">
                 <button onclick="location.reload()">🔄 Перезагрузить</button>
@@ -63,6 +238,254 @@
         </div>
     </div>
 
-    <script src="/js/app.js"></script>
+    <script>
+        // === ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ===
+        let pinsData = [];
+        let chartInstance = null;
+        const IP = window.location.hostname;
+
+        // === ЗАГРУЗКА ПИНОВ ===
+        async function loadPins() {
+            try {
+                const response = await fetch('/api/pins');
+                if (!response.ok) throw new Error('Ошибка сети');
+                const data = await response.json();
+                pinsData = data.pins || [];
+                renderPins();
+                updateStats();
+                fillPinSelect();
+                document.getElementById('wifiIP').textContent = IP;
+                return true;
+            } catch (e) {
+                console.error('Ошибка загрузки:', e);
+                document.getElementById('pinsContainer').innerHTML =
+                    '<div style="color:#ff4444;padding:40px;text-align:center;">❌ Ошибка загрузки данных</div>';
+                return false;
+            }
+        }
+
+        // === ОТРИСОВКА ПИНОВ С ГРУППИРОВКОЙ ===
+        function renderPins() {
+            const container = document.getElementById('pinsContainer');
+            container.innerHTML = '';
+
+            // Группировка
+            const groups = {
+                sensor: { title: '🌡️ Датчики', pins: [] },
+                actuator: { title: '⚡ Выходы (реле)', pins: [] },
+                input: { title: '🔌 Входы', pins: [] }
+            };
+
+            pinsData.forEach(pin => {
+                const type = pin.type || 'sensor';
+                if (groups[type]) groups[type].pins.push(pin);
+                else groups.sensor.pins.push(pin);
+            });
+
+            let outputsOn = 0;
+
+            Object.keys(groups).forEach(groupKey => {
+                const group = groups[groupKey];
+                if (group.pins.length === 0) return;
+
+                const titleDiv = document.createElement('div');
+                titleDiv.className = 'group-title';
+                titleDiv.textContent = group.title;
+                container.appendChild(titleDiv);
+
+                const grid = document.createElement('div');
+                grid.className = 'pins-grid';
+
+                group.pins.forEach(pin => {
+                    const isActuator = pin.is_output === true || pin.type === 'actuator';
+                    const value = pin.value || 0;
+                    const isOn = value > 0.5;
+                    if (isActuator && isOn) outputsOn++;
+
+                    const card = document.createElement('div');
+                    card.className = 'pin-card';
+
+                    let valueClass = pin.type || 'sensor';
+                    let displayValue = `${value.toFixed(1)}°C`;
+                    let controls = '';
+
+                    if (isActuator) {
+                        valueClass = isOn ? 'actuator on' : 'actuator off';
+                        displayValue = isOn ? '🟢 ВКЛ' : '🔴 ВЫКЛ';
+                        controls = `
+                            <button class="${isOn ? 'btn-off' : 'btn-on'}"
+                                    onclick="setPin(${pin.id}, ${isOn ? 0 : 1})">
+                                ${isOn ? '🔴 Выкл' : '🟢 Вкл'}
+                            </button>
+                        `;
+                    } else if (pin.type === 'input') {
+                        displayValue = value > 0.5 ? '🔴 АКТИВЕН' : '⚪ НОРМА';
+                        valueClass = value > 0.5 ? 'input alarm' : 'input';
+                    } else {
+                        // Датчики
+                        if (value > 50) valueClass += ' alarm';
+                    }
+
+                    const typeLabel = pin.type === 'sensor' ? 'Датчик' :
+                                     pin.type === 'actuator' ? 'Выход' :
+                                     pin.type === 'input' ? 'Вход' : 'Пин';
+
+                    card.innerHTML = `
+                        <div class="pin-name">${pin.name || `Пин ${pin.id}`}</div>
+                        <div class="pin-value ${valueClass}">${displayValue}</div>
+                        <div class="pin-type ${pin.type}">${typeLabel} • GPIO ${pin.id}</div>
+                        <div class="pin-actions">${controls}</div>
+                    `;
+                    grid.appendChild(card);
+                });
+
+                container.appendChild(grid);
+            });
+
+            document.getElementById('outputsOn').textContent = outputsOn;
+        }
+
+        // === УПРАВЛЕНИЕ ПИНОМ ===
+        async function setPin(pinId, value) {
+            try {
+                const response = await fetch(`/api/pin/set?pin=${pinId}&value=${value}`);
+                const result = await response.json();
+                if (result.success) {
+                    const pin = pinsData.find(p => p.id === pinId);
+                    if (pin) {
+                        pin.value = value;
+                        renderPins();
+                        updateStats();
+                    }
+                } else {
+                    alert('Ошибка: ' + (result.error || 'неизвестная ошибка'));
+                }
+            } catch (e) {
+                console.error('Ошибка управления:', e);
+                alert('Ошибка связи с контроллером');
+            }
+        }
+
+        // === СТАТИСТИКА ===
+        function updateStats() {
+            const total = pinsData.length;
+            const sensors = pinsData.filter(p => p.type === 'sensor').length;
+            const actuators = pinsData.filter(p => p.type === 'actuator' || p.is_output === true).length;
+            const inputs = pinsData.filter(p => p.type === 'input').length;
+            document.getElementById('totalPins').textContent = total;
+            document.getElementById('sensorCount').textContent = sensors;
+            document.getElementById('actuatorCount').textContent = actuators;
+            document.getElementById('inputCount').textContent = inputs;
+        }
+
+        // === ГРАФИКИ ===
+        function fillPinSelect() {
+            const select = document.getElementById('pinSelect');
+            select.innerHTML = '';
+            pinsData.forEach(pin => {
+                const option = document.createElement('option');
+                option.value = pin.id;
+                option.textContent = `${pin.name || `Пин ${pin.id}`} (${pin.type})`;
+                select.appendChild(option);
+            });
+            if (pinsData.length > 0) loadHistory();
+        }
+
+        async function loadHistory() {
+            const pinId = document.getElementById('pinSelect').value;
+            if (!pinId) return;
+            try {
+                const response = await fetch(`/api/history?pin=${pinId}&points=50`);
+                if (!response.ok) throw new Error('Ошибка загрузки');
+                const data = await response.json();
+                updateChart(data, pinId);
+            } catch (e) {
+                console.error('Ошибка истории:', e);
+            }
+        }
+
+        function updateChart(data, pinId) {
+            const ctx = document.getElementById('tempChart').getContext('2d');
+            const labels = data.map(d => new Date(d.t * 1000).toLocaleTimeString());
+            const values = data.map(d => d.v);
+
+            if (chartInstance) chartInstance.destroy();
+
+            const pin = pinsData.find(p => p.id == pinId);
+            const isActuator = pin && (pin.type === 'actuator' || pin.is_output === true);
+            const color = isActuator ? '#ffaa44' : '#00d4ff';
+
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: pin ? pin.name : `Пин ${pinId}`,
+                        data: values,
+                        borderColor: color,
+                        backgroundColor: color + '20',
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 3,
+                        pointBackgroundColor: color
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { labels: { color: '#8899bb' } } },
+                    scales: {
+                        x: { grid: { color: '#1a2a3a' }, ticks: { color: '#556688' } },
+                        y: { grid: { color: '#1a2a3a' }, ticks: { color: '#556688' } }
+                    }
+                }
+            });
+        }
+
+        // === СБРОС ===
+        async function resetController() {
+            if (confirm('Сбросить контроллер?')) {
+                try {
+                    await fetch('/api/reset', { method: 'POST' });
+                    alert('Контроллер перезагружается...');
+                    setTimeout(() => location.reload(), 3000);
+                } catch (e) {
+                    alert('Ошибка сброса');
+                }
+            }
+        }
+
+        // === ТАБЫ ===
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById(`tab-${this.dataset.tab}`).classList.add('active');
+                if (this.dataset.tab === 'graphs' && chartInstance) {
+                    setTimeout(() => chartInstance.resize(), 100);
+                }
+            });
+        });
+
+        // === ОБНОВЛЕНИЕ ===
+        function updateTime() {
+            document.getElementById('lastUpdate').textContent = `Обновление: ${new Date().toLocaleTimeString()}`;
+        }
+
+        // === ИНИЦИАЛИЗАЦИЯ ===
+        async function init() {
+            await loadPins();
+            updateTime();
+            setInterval(() => {
+                loadPins();
+                updateTime();
+            }, 3000);
+            document.getElementById('statusText').textContent = 'Подключено';
+            document.getElementById('ipDisplay').textContent = `IP: ${IP}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
 </body>
 </html>

@@ -8,7 +8,8 @@
 #include "logger.h"
 #include "esp_netif.h"
 #include "esp_event.h"
-#include "sensor_module.h"   // <-- ДОБАВИТЬ!
+#include "sensor_module.h"
+#include "wifi_manager.h"
 
 void app_main(void) {
     // Инициализация NVS
@@ -26,12 +27,16 @@ void app_main(void) {
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
 
-    // === РЕГИСТРАЦИЯ МОДУЛЯ sensor_module ===
-    ESP_LOGI("MAIN", "=== BEFORE REGISTER ===");
-    // module_register(&sensor_module);
-    ESP_LOGI("MAIN", "=== AFTER REGISTER ===");
+    // === Wi-Fi ===
+    wifi_manager_init();
 
-    // Запуск модулей
+    // === РЕГИСТРАЦИЯ МОДУЛЯ sensor_module ===
+    // Если sensor_module регистрируется через module_register_builtins() в core.c,
+    // то здесь регистрировать НЕ НУЖНО, чтобы избежать двойной регистрации.
+    // Если не регистрируется в core.c — раскомментируйте:
+    // module_register(&sensor_module);
+
+    // === ЗАПУСК МОДУЛЕЙ ===
     module_start_all();
 
     LOG_INFO("MAIN", "System ready!");

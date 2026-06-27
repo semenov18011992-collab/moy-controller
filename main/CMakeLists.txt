@@ -1,6 +1,8 @@
 idf_component_register(SRCS
     main.c
     src/sensor_module.c
+    src/ds18b20.c
+    src/wifi_manager.c
     src/config.c
     src/core.c
     src/module.c
@@ -11,7 +13,7 @@ idf_component_register(SRCS
     src/modules/module_web.c
     src/modules/module_test.c
     INCLUDE_DIRS include
-    REQUIRES nvs_flash esp_netif esp_event esp_http_server driver lwip spi_flash freertos esp_driver_ledc json
+    REQUIRES nvs_flash esp_netif esp_event esp_http_server driver lwip spi_flash freertos esp_driver_ledc json esp_wifi
     EMBED_FILES
         ../data/index.html
         ../data/css/style.css
