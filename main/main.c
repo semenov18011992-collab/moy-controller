@@ -10,6 +10,11 @@
 #include "esp_event.h"
 #include "sensor_module.h"
 #include "wifi_manager.h"
+#include "config_manager.h"
+#include "pin_config.h"
+
+// Объявляем TAG для логирования
+static const char *TAG = "MAIN";
 
 void app_main(void) {
     // Инициализация NVS
@@ -19,6 +24,13 @@ void app_main(void) {
         ret = nvs_flash_init();
     }
     ESP_ERROR_CHECK(ret);
+
+    // ===== ИНИЦИАЛИЗАЦИЯ CONFIG_MANAGER (ДО core_init) =====
+    ESP_LOGI(TAG, "Initializing config manager...");
+    esp_err_t cfg_err = config_manager_init();
+    if (cfg_err != ESP_OK) {
+        ESP_LOGE(TAG, "Config manager init failed: %s", esp_err_to_name(cfg_err));
+    }
 
     // Инициализация ядра
     core_init();
@@ -39,7 +51,24 @@ void app_main(void) {
     // === ЗАПУСК МОДУЛЕЙ ===
     module_start_all();
 
+    // ===== ЗАГРУЗКА И ПРИМЕНЕНИЕ СОХРАНЁННЫХ КОНФИГУРАЦИЙ (ПОСЛЕ ЗАПУСКА МОДУЛЕЙ) =====
+    ESP_LOGI(TAG, "Applying saved pin configurations...");
+    pin_config_t configs[MAX_PINS];
+    uint8_t count = 0;
+    if (config_load_all(configs, &count) == ESP_OK) {
+        for (int i = 0; i < count; i++) {
+            if (configs[i].enabled) {
+                config_apply_pin(&configs[i]);
+                ESP_LOGI(TAG, "Applied config for pin %d: %s", configs[i].pin, configs[i].name);
+            }
+        }
+        ESP_LOGI(TAG, "Applied %d pin configurations", count);
+    } else {
+        ESP_LOGI(TAG, "No saved pin configurations found, using defaults");
+    }
+
     LOG_INFO("MAIN", "System ready!");
+    ESP_LOGI(TAG, "✅ System ready! Heap: %d KB", esp_get_free_heap_size() / 1024);
 
     // Основной цикл
     while (1) {

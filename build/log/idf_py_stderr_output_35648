@@ -1,0 +1,58 @@
+Command: ninja clean
+CMake Error at C:/Espressif/frameworks/esp-idf-v5.5.4/tools/cmake/utilities.cmake:108 (target_sources):
+  Cannot specify sources for target "main.elf" which is not built by this
+  project.
+Call Stack (most recent call first):
+  main/CMakeLists.txt:22 (target_add_binary_data)
+
+
+CMake Error at C:/Espressif/frameworks/esp-idf-v5.5.4/tools/cmake/utilities.cmake:108 (target_sources):
+  Cannot specify sources for target "main.elf" which is not built by this
+  project.
+Call Stack (most recent call first):
+  main/CMakeLists.txt:23 (target_add_binary_data)
+
+
+CMake Error at C:/Espressif/frameworks/esp-idf-v5.5.4/tools/cmake/utilities.cmake:108 (target_sources):
+  Cannot specify sources for target "main.elf" which is not built by this
+  project.
+Call Stack (most recent call first):
+  main/CMakeLists.txt:24 (target_add_binary_data)
+
+
+CMake Error at C:/Espressif/frameworks/esp-idf-v5.5.4/tools/cmake/utilities.cmake:108 (target_sources):
+  Cannot specify sources for target "main.elf" which is not built by this
+  project.
+Call Stack (most recent call first):
+  main/CMakeLists.txt:25 (target_add_binary_data)
+
+
+CMake Error at C:/Espressif/frameworks/esp-idf-v5.5.4/tools/cmake/utilities.cmake:108 (target_sources):
+  Cannot specify sources for target "main.elf" which is not built by this
+  project.
+Call Stack (most recent call first):
+  main/CMakeLists.txt:26 (target_add_binary_data)
+
+
+CMake Error at C:/Espressif/frameworks/esp-idf-v5.5.4/tools/cmake/utilities.cmake:108 (target_sources):
+  Cannot specify sources for target "main.elf" which is not built by this
+  project.
+Call Stack (most recent call first):
+  main/CMakeLists.txt:27 (target_add_binary_data)
+
+
+CMake Error at C:/Espressif/frameworks/esp-idf-v5.5.4/tools/cmake/utilities.cmake:108 (target_sources):
+  Cannot specify sources for target "main.elf" which is not built by this
+  project.
+Call Stack (most recent call first):
+  main/CMakeLists.txt:28 (target_add_binary_data)
+
+
+CMake Error at C:/Espressif/frameworks/esp-idf-v5.5.4/tools/cmake/utilities.cmake:108 (target_sources):
+  Cannot specify sources for target "main.elf" which is not built by this
+  project.
+Call Stack (most recent call first):
+  main/CMakeLists.txt:29 (target_add_binary_data)
+
+
+ninja: error: rebuilding 'build.ninja': subcommand failed

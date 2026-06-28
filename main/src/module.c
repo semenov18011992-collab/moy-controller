@@ -75,9 +75,11 @@ void module_register_builtins(void) {
     extern module_t web_module;
     extern module_t test_module;
     extern module_t sensor_module;
+    extern module_t pin_manager_module;   // ← НОВАЯ СТРОКА
     
     module_register(&gpio_module);
     module_register(&web_module);
     module_register(&test_module);
     module_register(&sensor_module);
+    module_register(&pin_manager_module); // ← НОВАЯ СТРОКА
 }

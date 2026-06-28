@@ -1,0 +1,22 @@
+Command: ninja all
+[1/10] Performing build step for 'bootloader'
+[1/1] C:\Windows\system32\cmd.exe /C "cd /D C:\Users\User\Documents\GitHub\moy-controller\build\bootloader\esp-idf\esptool_py && C:\Espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.4/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Users/User/Documents/GitHub/moy-controller/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6630 bytes. 0x9d0 bytes (9%) free.
+[2/10] No install step for 'bootloader'
+[3/10] Completed 'bootloader'
+[4/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/src/pcf8574.c.obj
+[5/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/src/modules/module_gpio.c.obj
+C:/Users/User/Documents/GitHub/moy-controller/main/src/modules/module_gpio.c:235:13: warning: 'gpio_stop' defined but not used [-Wunused-function]
+  235 | static void gpio_stop(void) { LOG_INFO("GPIO", "Stopped"); }
+      |             ^~~~~~~~~
+[6/10] Linking C static library esp-idf\main\libmain.a
+[7/10] Generating esp-idf/esp_system/ld/sections.ld
+[8/10] Linking CXX executable moy_controller.elf
+[9/10] Generating binary image from built executable
+esptool.py v4.12.dev2
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated C:/Users/User/Documents/GitHub/moy-controller/build/moy_controller.bin
+[10/10] C:\Windows\system32\cmd.exe /C "cd /D C:\Users\User\Documents\GitHub\moy-controller\build\esp-idf\esptool_py && C:\Espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.4/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/Users/User/Documents/GitHub/moy-controller/build/partition_table/partition-table.bin C:/Users/User/Documents/GitHub/moy-controller/build/moy_controller.bin"
+moy_controller.bin binary size 0xdbfb0 bytes. Smallest app partition is 0x100000 bytes. 0x24050 bytes (14%) free.
