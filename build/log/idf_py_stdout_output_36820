@@ -1,0 +1,1625 @@
+Command: C:\Espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.4\tools/idf_monitor.py -p COM6 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\User\Documents\GitHub\moy-controller\build\moy_controller.elf C:\Users\User\Documents\GitHub\moy-controller\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.14_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.4\tools\idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.4-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 28 2026 19:44:36[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=289ach (166316) map[0m
+[0;32mI (144) esp_image: segment 1: paddr=000389d4 vaddr=3ffbdb60 size=07644h ( 30276) load[0m
+[0;32mI (155) esp_image: segment 2: paddr=00040020 vaddr=400d0020 size=98b50h (625488) map[0m
+[0;32mI (369) esp_image: segment 3: paddr=000d8b78 vaddr=3ffc51a4 size=01c54h (  7252) load[0m
+[0;32mI (372) esp_image: segment 4: paddr=000da7d4 vaddr=40080000 size=1ab50h (109392) load[0m
+[0;32mI (415) esp_image: segment 5: paddr=000f532c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (430) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (430) boot: Disabling RNG early entropy source...[0m
+[0;32mI (440) cpu_start: Multicore app[0m
+[0;32mI (449) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (449) cpu_start: Pro cpu start user code[0m
+[0;32mI (449) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (454) app_init: Application information:[0m
+[0;32mI (458) app_init: Project name:     moy_controller[0m
+[0;32mI (464) app_init: App version:      v3.0-scada-full-5-gfcd2b24-dirt[0m
+[0;32mI (471) app_init: Compile time:     Jun 28 2026 19:44:17[0m
+[0;32mI (477) app_init: ELF file SHA256:  981521e42...[0m
+[0;32mI (482) app_init: ESP-IDF:          v5.5.4-dirty[0m
+[0;32mI (487) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (492) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (497) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (502) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (509) heap_init: At 3FFAE6E0 len 0000F480 (61 KiB): DRAM[0m
+[0;32mI (515) heap_init: At 3FFCD6E8 len 00012918 (74 KiB): DRAM[0m
+[0;32mI (521) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (528) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (534) heap_init: At 4009AB50 len 000054B0 (21 KiB): IRAM[0m
+[0;33mW (542) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (554) spi_flash: detected chip: generic[0m
+[0;32mI (559) spi_flash: flash io: dio[0m
+[0;33mW (563) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (576) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (587) coexist: coex firmware version: 093e3d2[0m
+[0;32mI (593) main_task: Started on CPU0[0m
+[0;32mI (603) main_task: Calling app_main()[0m
+[0;32mI (623) MAIN: Initializing config manager...[0m
+[0;32mI (633) CONFIG_MGR: Config manager initialized[0m
+[0;32mI (633) CORE: === MOY CONTROLLER v1.0.0 ===[0m
+[0;32mI (633) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (643) PLATFORM: Chip: ESP32[0m
+[0;32mI (643) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (643) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (653) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (653) PLATFORM: WiFi 6: NO[0m
+[0;32mI (663) PLATFORM: BLE: YES[0m
+[0;32mI (663) PLATFORM: USB OTG: NO[0m
+[0;32mI (663) CORE: Platform: ESP32[0m
+[0;32mI (673) CORE: CPU: 160 MHz, Free RAM: 209 KB[0m
+[0;32mI (673) CONFIG: Configuration loaded[0m
+[0;32mI (683) MODULE: Registered: gpio v2.0.0[0m
+[0;32mI (683) MODULE: Registered: web 1.0.0[0m
+[0;32mI (683) MODULE: Registered: test v1.0.0[0m
+[0;32mI (693) MODULE: Registered: sensor_min v1.0.0[0m
+[0;32mI (693) MODULE: Registered: pin_manager v1.0.0[0m
+[0;32mI (703) MODULE: Initializing all modules...[0m
+[0;32mI (703) GPIO: Init GPIO module (v6.0)[0m
+[0;32mI (713) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (713) PLATFORM: Chip: ESP32[0m
+[0;32mI (723) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (723) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (733) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (733) PLATFORM: WiFi 6: NO[0m
+[0;32mI (733) PLATFORM: BLE: YES[0m
+[0;32mI (743) PLATFORM: USB OTG: NO[0m
+[0;32mI (743) GPIO: Initializing 40 internal pins[0m
+[0;32mI (753) GPIO: Scanning for PCF8574...[0m
+[0;32mI (753) GPIO: Initializing I2C for PCF8574...[0m
+[0;32mI (763) GPIO: ✅ I2C initialized successfully[0m
+[0;32mI (763) GPIO: Found 0 PCF8574 expanders, total pins: 40[0m
+[0;32mI (773) GPIO: Total pins: 40[0m
+[0;32mI (773) MODULE: Init OK: gpio[0m
+[0;32mI (773) WEB: Init[0m
+[0;32mI (783) MODULE: Init OK: web[0m
+[0;32mI (783) TEST: Test module init[0m
+[0;32mI (783) MODULE: Init OK: test[0m
+[0;33mW (793) DS18B20: No DS18B20 sensors found on GPIO 4[0m
+[0;32mI (803) SENSOR: Sensor module initialized (16 pins, emulation)[0m
+[0;32mI (803) MODULE: Init OK: sensor_min[0m
+[0;32mI (803) PIN_MGR: Pin Manager module init[0m
+[0;32mI (813) MODULE: Init OK: pin_manager[0m
+[0;32mI (813) CORE: System ready! Heap: 205 KB[0m
+[0;32mI (823) WIFI: Wi-Fi Manager init[0m
+[0;32mI (833) wifi:wifi driver task: 3ffbd908, prio:23, stack:6656, core=0[0m
+[0;32mI (843) wifi:wifi firmware version: 0947e8b[0m
+[0;32mI (843) wifi:wifi certification version: v7.0[0m
+[0;32mI (843) wifi:config NVS flash: enabled[0m
+[0;32mI (843) wifi:config nano formatting: disabled[0m
+[0;32mI (853) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (853) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (863) wifi:Init management short buffer num: 32[0m
+[0;32mI (863) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (873) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (873) wifi:Init static rx buffer num: 10[0m
+[0;32mI (873) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (883) wifi_init: rx ba win: 6[0m
+[0;32mI (883) wifi_init: accept mbox: 6[0m
+[0;32mI (893) wifi_init: tcpip mbox: 32[0m
+[0;32mI (893) wifi_init: udp mbox: 6[0m
+[0;32mI (893) wifi_init: tcp mbox: 6[0m
+[0;32mI (903) wifi_init: tcp tx win: 5760[0m
+[0;32mI (903) wifi_init: tcp rx win: 5760[0m
+[0;32mI (913) wifi_init: tcp mss: 1440[0m
+[0;32mI (913) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (913) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (923) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (1013) wifi:mode : sta (28:05:a5:34:d7:44)[0m
+[0;32mI (1013) wifi:enable tsf[0m
+[0;32mI (1013) WIFI: Connecting to Wi-Fi: Keenetic-9598...[0m
+[0;32mI (1033) wifi:new:<6,2>, old:<1,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1033) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2043) wifi:state: auth -> init (0x200)[0m
+[0;32mI (2053) wifi:new:<6,0>, old:<6,2>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4483) wifi:new:<6,2>, old:<6,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4483) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (4503) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (4513) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (4543) wifi:connected with Keenetic-9598, aid = 8, channel 6, 40D, bssid = 9c:56:36:1b:80:f4[0m
+[0;32mI (4543) wifi:security: WPA2-PSK, phy: bgn, rssi: -71, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (4553) wifi:pm start, type: 1[0m
+
+[0;32mI (4553) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4623) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (5933) esp_netif_handlers: sta ip: 192.168.1.133, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (5933) WIFI: ✅ Got IP: 192.168.1.133[0m
+[0;32mI (5933) WIFI: ✅ Connected![0m
+[0;32mI (5933) MODULE: Starting all modules...[0m
+[0;32mI (5943) GPIO: GPIO started[0m
+[0;32mI (5943) MODULE: Start OK: gpio[0m
+[0;32mI (5953) WEBSERVER: ✅ Webserver started on port 80[0m
+[0;32mI (5953) MODULE: Start OK: web[0m
+[0;32mI (5953) TEST: Started[0m
+[0;32mI (5963) MODULE: Start OK: test[0m
+[0;32mI (5963) SENSOR: Sensor module started[0m
+[0;32mI (5963) MODULE: Start OK: sensor_min[0m
+[0;32mI (5973) PIN_MGR: Pin Manager module started[0m
+[0;32mI (5973) MODULE: Start OK: pin_manager[0m
+[0;32mI (5983) MAIN: Applying saved pin configurations...[0m
+[0;32mI (5983) MAIN: No saved pin configurations found, using defaults[0m
+[0;32mI (5993) MAIN: System ready![0m
+[0;32mI (5993) MAIN: ✅ System ready! Heap: 151 KB[0m
+[0;32mI (7393) wifi:<ba-add>idx:0 (ifx:0, 9c:56:36:1b:80:f4), tid:0, ssn:2, winSize:64[0m
+[0;33mW (51013) httpd_txrx: httpd_resp_send_err: 500 Internal Server Error - Failed to load configs[0m
+Guru Meditation Error: Core  0 panic'ed (LoadProhibited). Exception was unhandled.
+
+Core  0 register dump:
+PC      : 0x4008d28e  PS      : 0x00060033  A0      : 0x4008bfb7  A1      : 0x3ffd86d0  
+A2      : 0x3ffd9350  A3      : 0x00000000  A4      : 0x3ff000dc  A5      : 0x4008bee6  
+A6      : 0x3ffc1e14  A7      : 0x00000001  A8      : 0x00000000  A9      : 0x00060320  
+A10     : 0x00000000  A11     : 0xffffffff  A12     : 0x3ffc7384  A13     : 0x00060023  
+A14     : 0x00000000  A15     : 0x0000cdcd  SAR     : 0x00000019  EXCCAUSE: 0x0000001c  
+EXCVADDR: 0x00060320  LBEG    : 0x4000c2e0  LEND    : 0x4000c2f6  LCOUNT  : 0xffffffff  
+
+
+Backtrace: 0x4008d28b:0x3ffd86d0 0x4008bfb4:0x3ffd86f0 0x4008bf66:0xa5a5a5a5 |<-CORRUPTED
+
+
+
+
+ELF file SHA256: 981521e42
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.4-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 28 2026 19:44:36[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=289ach (166316) map[0m
+[0;32mI (143) esp_image: segment 1: paddr=000389d4 vaddr=3ffbdb60 size=07644h ( 30276) load[0m
+[0;32mI (155) esp_image: segment 2: paddr=00040020 vaddr=400d0020 size=98b50h (625488) map[0m
+[0;32mI (369) esp_image: segment 3: paddr=000d8b78 vaddr=3ffc51a4 size=01c54h (  7252) load[0m
+[0;32mI (372) esp_image: segment 4: paddr=000da7d4 vaddr=40080000 size=1ab50h (109392) load[0m
+[0;32mI (415) esp_image: segment 5: paddr=000f532c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (430) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (430) boot: Disabling RNG early entropy source...[0m
+[0;32mI (440) cpu_start: Multicore app[0m
+[0;32mI (449) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (449) cpu_start: Pro cpu start user code[0m
+[0;32mI (449) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (454) app_init: Application information:[0m
+[0;32mI (458) app_init: Project name:     moy_controller[0m
+[0;32mI (464) app_init: App version:      v3.0-scada-full-5-gfcd2b24-dirt[0m
+[0;32mI (471) app_init: Compile time:     Jun 28 2026 19:44:17[0m
+[0;32mI (477) app_init: ELF file SHA256:  981521e42...[0m
+[0;32mI (482) app_init: ESP-IDF:          v5.5.4-dirty[0m
+[0;32mI (487) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (492) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (497) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (502) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (509) heap_init: At 3FFAE6E0 len 0000F480 (61 KiB): DRAM[0m
+[0;32mI (515) heap_init: At 3FFCD6E8 len 00012918 (74 KiB): DRAM[0m
+[0;32mI (521) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (528) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (534) heap_init: At 4009AB50 len 000054B0 (21 KiB): IRAM[0m
+[0;33mW (542) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (554) spi_flash: detected chip: generic[0m
+[0;32mI (559) spi_flash: flash io: dio[0m
+[0;33mW (563) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (576) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (587) coexist: coex firmware version: 093e3d2[0m
+[0;32mI (593) main_task: Started on CPU0[0m
+[0;32mI (603) main_task: Calling app_main()[0m
+[0;32mI (623) MAIN: Initializing config manager...[0m
+[0;32mI (633) CONFIG_MGR: Config manager initialized[0m
+[0;32mI (633) CORE: === MOY CONTROLLER v1.0.0 ===[0m
+[0;32mI (633) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (643) PLATFORM: Chip: ESP32[0m
+[0;32mI (643) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (643) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (653) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (653) PLATFORM: WiFi 6: NO[0m
+[0;32mI (663) PLATFORM: BLE: YES[0m
+[0;32mI (663) PLATFORM: USB OTG: NO[0m
+[0;32mI (663) CORE: Platform: ESP32[0m
+[0;32mI (673) CORE: CPU: 160 MHz, Free RAM: 209 KB[0m
+[0;32mI (673) CONFIG: Configuration loaded[0m
+[0;32mI (683) MODULE: Registered: gpio v2.0.0[0m
+[0;32mI (683) MODULE: Registered: web 1.0.0[0m
+[0;32mI (683) MODULE: Registered: test v1.0.0[0m
+[0;32mI (693) MODULE: Registered: sensor_min v1.0.0[0m
+[0;32mI (693) MODULE: Registered: pin_manager v1.0.0[0m
+[0;32mI (703) MODULE: Initializing all modules...[0m
+[0;32mI (703) GPIO: Init GPIO module (v6.0)[0m
+[0;32mI (713) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (713) PLATFORM: Chip: ESP32[0m
+[0;32mI (723) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (723) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (733) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (733) PLATFORM: WiFi 6: NO[0m
+[0;32mI (733) PLATFORM: BLE: YES[0m
+[0;32mI (743) PLATFORM: USB OTG: NO[0m
+[0;32mI (743) GPIO: Initializing 40 internal pins[0m
+[0;32mI (753) GPIO: Scanning for PCF8574...[0m
+[0;32mI (753) GPIO: Initializing I2C for PCF8574...[0m
+[0;32mI (763) GPIO: ✅ I2C initialized successfully[0m
+[0;32mI (763) GPIO: Found 0 PCF8574 expanders, total pins: 40[0m
+[0;32mI (773) GPIO: Total pins: 40[0m
+[0;32mI (773) MODULE: Init OK: gpio[0m
+[0;32mI (773) WEB: Init[0m
+[0;32mI (783) MODULE: Init OK: web[0m
+[0;32mI (783) TEST: Test module init[0m
+[0;32mI (783) MODULE: Init OK: test[0m
+[0;33mW (793) DS18B20: No DS18B20 sensors found on GPIO 4[0m
+[0;32mI (803) SENSOR: Sensor module initialized (16 pins, emulation)[0m
+[0;32mI (803) MODULE: Init OK: sensor_min[0m
+[0;32mI (803) PIN_MGR: Pin Manager module init[0m
+[0;32mI (813) MODULE: Init OK: pin_manager[0m
+[0;32mI (813) CORE: System ready! Heap: 205 KB[0m
+[0;32mI (823) WIFI: Wi-Fi Manager init[0m
+[0;32mI (833) wifi:wifi driver task: 3ffbd908, prio:23, stack:6656, core=0[0m
+[0;32mI (843) wifi:wifi firmware version: 0947e8b[0m
+[0;32mI (843) wifi:wifi certification version: v7.0[0m
+[0;32mI (843) wifi:config NVS flash: enabled[0m
+[0;32mI (843) wifi:config nano formatting: disabled[0m
+[0;32mI (853) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (853) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (863) wifi:Init management short buffer num: 32[0m
+[0;32mI (863) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (873) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (873) wifi:Init static rx buffer num: 10[0m
+[0;32mI (873) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (883) wifi_init: rx ba win: 6[0m
+[0;32mI (883) wifi_init: accept mbox: 6[0m
+[0;32mI (893) wifi_init: tcpip mbox: 32[0m
+[0;32mI (893) wifi_init: udp mbox: 6[0m
+[0;32mI (893) wifi_init: tcp mbox: 6[0m
+[0;32mI (903) wifi_init: tcp tx win: 5760[0m
+[0;32mI (903) wifi_init: tcp rx win: 5760[0m
+[0;32mI (913) wifi_init: tcp mss: 1440[0m
+[0;32mI (913) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (913) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (923) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (1013) wifi:mode : sta (28:05:a5:34:d7:44)[0m
+[0;32mI (1013) wifi:enable tsf[0m
+[0;32mI (1013) WIFI: Connecting to Wi-Fi: Keenetic-9598...[0m
+[0;32mI (1033) wifi:new:<6,2>, old:<1,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1033) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2043) wifi:state: auth -> init (0x200)[0m
+[0;32mI (2053) wifi:new:<6,0>, old:<6,2>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4493) wifi:new:<6,2>, old:<6,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4493) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (4503) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (4513) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (4543) wifi:connected with Keenetic-9598, aid = 8, channel 6, 40D, bssid = 9c:56:36:1b:80:f4[0m
+[0;32mI (4543) wifi:security: WPA2-PSK, phy: bgn, rssi: -63, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (4553) wifi:pm start, type: 1[0m
+
+[0;32mI (4553) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4613) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (5933) esp_netif_handlers: sta ip: 192.168.1.133, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (5933) WIFI: ✅ Got IP: 192.168.1.133[0m
+[0;32mI (5933) WIFI: ✅ Connected![0m
+[0;32mI (5933) MODULE: Starting all modules...[0m
+[0;32mI (5943) GPIO: GPIO started[0m
+[0;32mI (5943) MODULE: Start OK: gpio[0m
+[0;32mI (5953) WEBSERVER: ✅ Webserver started on port 80[0m
+[0;32mI (5953) MODULE: Start OK: web[0m
+[0;32mI (5953) TEST: Started[0m
+[0;32mI (5963) MODULE: Start OK: test[0m
+[0;32mI (5963) SENSOR: Sensor module started[0m
+[0;32mI (5963) MODULE: Start OK: sensor_min[0m
+[0;32mI (5973) PIN_MGR: Pin Manager module started[0m
+[0;32mI (5973) MODULE: Start OK: pin_manager[0m
+[0;32mI (5983) MAIN: Applying saved pin configurations...[0m
+[0;32mI (5983) MAIN: No saved pin configurations found, using defaults[0m
+[0;32mI (5993) MAIN: System ready![0m
+[0;32mI (5993) MAIN: ✅ System ready! Heap: 151 KB[0m
+[0;32mI (8413) wifi:<ba-add>idx:0 (ifx:0, 9c:56:36:1b:80:f4), tid:0, ssn:1, winSize:64[0m
+[0;33mW (32173) httpd_txrx: httpd_resp_send_err: 500 Internal Server Error - Failed to load configs[0m
+Guru Meditation Error: Core  1 panic'ed (LoadProhibited). Exception was unhandled.
+
+Core  1 register dump:
+PC      : 0x4008d28e  PS      : 0x00060033  A0      : 0x4008bfb7  A1      : 0x3ffd86d0  
+A2      : 0x3ffd9350  A3      : 0x00000000  A4      : 0x3ff000e0  A5      : 0x4008bee6  
+A6      : 0x3ffc1e14  A7      : 0x00000001  A8      : 0x00000001  A9      : 0x00060d20  
+A10     : 0x00000000  A11     : 0xffffffff  A12     : 0x3ffc7388  A13     : 0x00060023  
+A14     : 0x00000004  A15     : 0x0000abab  SAR     : 0x00000019  EXCCAUSE: 0x0000001c  
+EXCVADDR: 0x00060d20  LBEG    : 0x4000c2e0  LEND    : 0x4000c2f6  LCOUNT  : 0xffffffff  
+
+
+Backtrace: 0x4008d28b:0x3ffd86d0 0x4008bfb4:0x3ffd86f0 0x4008bf66:0xa5a5a5a5 |<-CORRUPTED
+
+
+
+
+ELF file SHA256: 981521e42
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.4-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 28 2026 19:44:36[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=289ach (166316) map[0m
+[0;32mI (143) esp_image: segment 1: paddr=000389d4 vaddr=3ffbdb60 size=07644h ( 30276) load[0m
+[0;32mI (155) esp_image: segment 2: paddr=00040020 vaddr=400d0020 size=98b50h (625488) map[0m
+[0;32mI (369) esp_image: segment 3: paddr=000d8b78 vaddr=3ffc51a4 size=01c54h (  7252) load[0m
+[0;32mI (372) esp_image: segment 4: paddr=000da7d4 vaddr=40080000 size=1ab50h (109392) load[0m
+[0;32mI (415) esp_image: segment 5: paddr=000f532c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (430) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (430) boot: Disabling RNG early entropy source...[0m
+[0;32mI (440) cpu_start: Multicore app[0m
+[0;32mI (448) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (449) cpu_start: Pro cpu start user code[0m
+[0;32mI (449) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (453) app_init: Application information:[0m
+[0;32mI (458) app_init: Project name:     moy_controller[0m
+[0;32mI (464) app_init: App version:      v3.0-scada-full-5-gfcd2b24-dirt[0m
+[0;32mI (471) app_init: Compile time:     Jun 28 2026 19:44:17[0m
+[0;32mI (477) app_init: ELF file SHA256:  981521e42...[0m
+[0;32mI (482) app_init: ESP-IDF:          v5.5.4-dirty[0m
+[0;32mI (487) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (492) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (497) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (502) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (509) heap_init: At 3FFAE6E0 len 0000F480 (61 KiB): DRAM[0m
+[0;32mI (515) heap_init: At 3FFCD6E8 len 00012918 (74 KiB): DRAM[0m
+[0;32mI (521) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (528) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (534) heap_init: At 4009AB50 len 000054B0 (21 KiB): IRAM[0m
+[0;33mW (542) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (554) spi_flash: detected chip: generic[0m
+[0;32mI (559) spi_flash: flash io: dio[0m
+[0;33mW (563) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (576) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (587) coexist: coex firmware version: 093e3d2[0m
+[0;32mI (593) main_task: Started on CPU0[0m
+[0;32mI (603) main_task: Calling app_main()[0m
+[0;32mI (623) MAIN: Initializing config manager...[0m
+[0;32mI (633) CONFIG_MGR: Config manager initialized[0m
+[0;32mI (633) CORE: === MOY CONTROLLER v1.0.0 ===[0m
+[0;32mI (633) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (643) PLATFORM: Chip: ESP32[0m
+[0;32mI (643) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (643) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (653) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (653) PLATFORM: WiFi 6: NO[0m
+[0;32mI (663) PLATFORM: BLE: YES[0m
+[0;32mI (663) PLATFORM: USB OTG: NO[0m
+[0;32mI (663) CORE: Platform: ESP32[0m
+[0;32mI (673) CORE: CPU: 160 MHz, Free RAM: 209 KB[0m
+[0;32mI (673) CONFIG: Configuration loaded[0m
+[0;32mI (683) MODULE: Registered: gpio v2.0.0[0m
+[0;32mI (683) MODULE: Registered: web 1.0.0[0m
+[0;32mI (683) MODULE: Registered: test v1.0.0[0m
+[0;32mI (693) MODULE: Registered: sensor_min v1.0.0[0m
+[0;32mI (693) MODULE: Registered: pin_manager v1.0.0[0m
+[0;32mI (703) MODULE: Initializing all modules...[0m
+[0;32mI (703) GPIO: Init GPIO module (v6.0)[0m
+[0;32mI (713) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (713) PLATFORM: Chip: ESP32[0m
+[0;32mI (723) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (723) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (733) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (733) PLATFORM: WiFi 6: NO[0m
+[0;32mI (733) PLATFORM: BLE: YES[0m
+[0;32mI (743) PLATFORM: USB OTG: NO[0m
+[0;32mI (743) GPIO: Initializing 40 internal pins[0m
+[0;32mI (753) GPIO: Scanning for PCF8574...[0m
+[0;32mI (753) GPIO: Initializing I2C for PCF8574...[0m
+[0;32mI (763) GPIO: ✅ I2C initialized successfully[0m
+[0;32mI (763) GPIO: Found 0 PCF8574 expanders, total pins: 40[0m
+[0;32mI (773) GPIO: Total pins: 40[0m
+[0;32mI (773) MODULE: Init OK: gpio[0m
+[0;32mI (773) WEB: Init[0m
+[0;32mI (783) MODULE: Init OK: web[0m
+[0;32mI (783) TEST: Test module init[0m
+[0;32mI (783) MODULE: Init OK: test[0m
+[0;33mW (793) DS18B20: No DS18B20 sensors found on GPIO 4[0m
+[0;32mI (803) SENSOR: Sensor module initialized (16 pins, emulation)[0m
+[0;32mI (803) MODULE: Init OK: sensor_min[0m
+[0;32mI (803) PIN_MGR: Pin Manager module init[0m
+[0;32mI (813) MODULE: Init OK: pin_manager[0m
+[0;32mI (813) CORE: System ready! Heap: 205 KB[0m
+[0;32mI (823) WIFI: Wi-Fi Manager init[0m
+[0;32mI (833) wifi:wifi driver task: 3ffbd908, prio:23, stack:6656, core=0[0m
+[0;32mI (843) wifi:wifi firmware version: 0947e8b[0m
+[0;32mI (843) wifi:wifi certification version: v7.0[0m
+[0;32mI (843) wifi:config NVS flash: enabled[0m
+[0;32mI (843) wifi:config nano formatting: disabled[0m
+[0;32mI (853) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (853) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (863) wifi:Init management short buffer num: 32[0m
+[0;32mI (863) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (873) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (873) wifi:Init static rx buffer num: 10[0m
+[0;32mI (873) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (883) wifi_init: rx ba win: 6[0m
+[0;32mI (883) wifi_init: accept mbox: 6[0m
+[0;32mI (893) wifi_init: tcpip mbox: 32[0m
+[0;32mI (893) wifi_init: udp mbox: 6[0m
+[0;32mI (893) wifi_init: tcp mbox: 6[0m
+[0;32mI (903) wifi_init: tcp tx win: 5760[0m
+[0;32mI (903) wifi_init: tcp rx win: 5760[0m
+[0;32mI (913) wifi_init: tcp mss: 1440[0m
+[0;32mI (913) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (913) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (923) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (1013) wifi:mode : sta (28:05:a5:34:d7:44)[0m
+[0;32mI (1013) wifi:enable tsf[0m
+[0;32mI (1023) WIFI: Connecting to Wi-Fi: Keenetic-9598...[0m
+[0;32mI (1033) wifi:new:<6,2>, old:<1,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1033) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2043) wifi:state: auth -> init (0x200)[0m
+[0;32mI (2053) wifi:new:<6,0>, old:<6,2>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4483) wifi:new:<6,2>, old:<6,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4483) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (4503) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (4513) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (4533) wifi:connected with Keenetic-9598, aid = 8, channel 6, 40D, bssid = 9c:56:36:1b:80:f4[0m
+[0;32mI (4533) wifi:security: WPA2-PSK, phy: bgn, rssi: -69, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (4543) wifi:pm start, type: 1[0m
+
+[0;32mI (4543) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4613) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (4763) wifi:<ba-add>idx:0 (ifx:0, 9c:56:36:1b:80:f4), tid:0, ssn:1, winSize:64[0m
+[0;32mI (5933) esp_netif_handlers: sta ip: 192.168.1.133, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (5933) WIFI: ✅ Got IP: 192.168.1.133[0m
+[0;32mI (5933) WIFI: ✅ Connected![0m
+[0;32mI (5933) MODULE: Starting all modules...[0m
+[0;32mI (5943) GPIO: GPIO started[0m
+[0;32mI (5943) MODULE: Start OK: gpio[0m
+[0;32mI (5953) WEBSERVER: ✅ Webserver started on port 80[0m
+[0;32mI (5953) MODULE: Start OK: web[0m
+[0;32mI (5953) TEST: Started[0m
+[0;32mI (5963) MODULE: Start OK: test[0m
+[0;32mI (5963) SENSOR: Sensor module started[0m
+[0;32mI (5963) MODULE: Start OK: sensor_min[0m
+[0;32mI (5973) PIN_MGR: Pin Manager module started[0m
+[0;32mI (5973) MODULE: Start OK: pin_manager[0m
+[0;32mI (5983) MAIN: Applying saved pin configurations...[0m
+[0;32mI (5983) MAIN: No saved pin configurations found, using defaults[0m
+[0;32mI (5993) MAIN: System ready![0m
+[0;32mI (5993) MAIN: ✅ System ready! Heap: 151 KB[0m
+[0;33mW (9553) httpd_txrx: httpd_resp_send_err: 500 Internal Server Error - Failed to load configs[0m
+
+***ERROR*** A stack overflow in task httpd has been detected.
+
+
+Backtrace: 0x4008ae65:0x3ffd8640 0x4008ae2d:0x3ffd8660 0x4008beaa:0x3ffd8680 0x4008d2bb:0x3ffd8700 0x4008bfb4:0x3ffd8720 0x4008bf66:0xa5a5a5a5 |<-CORRUPTED
+
+
+
+
+ELF file SHA256: 981521e42
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.4-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 28 2026 19:44:36[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=289ach (166316) map[0m
+[0;32mI (143) esp_image: segment 1: paddr=000389d4 vaddr=3ffbdb60 size=07644h ( 30276) load[0m
+[0;32mI (155) esp_image: segment 2: paddr=00040020 vaddr=400d0020 size=98b50h (625488) map[0m
+[0;32mI (369) esp_image: segment 3: paddr=000d8b78 vaddr=3ffc51a4 size=01c54h (  7252) load[0m
+[0;32mI (372) esp_image: segment 4: paddr=000da7d4 vaddr=40080000 size=1ab50h (109392) load[0m
+[0;32mI (415) esp_image: segment 5: paddr=000f532c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (430) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (430) boot: Disabling RNG early entropy source...[0m
+[0;32mI (440) cpu_start: Multicore app[0m
+[0;32mI (449) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (449) cpu_start: Pro cpu start user code[0m
+[0;32mI (449) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (454) app_init: Application information:[0m
+[0;32mI (458) app_init: Project name:     moy_controller[0m
+[0;32mI (464) app_init: App version:      v3.0-scada-full-5-gfcd2b24-dirt[0m
+[0;32mI (471) app_init: Compile time:     Jun 28 2026 19:44:17[0m
+[0;32mI (477) app_init: ELF file SHA256:  981521e42...[0m
+[0;32mI (482) app_init: ESP-IDF:          v5.5.4-dirty[0m
+[0;32mI (487) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (492) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (497) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (502) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (509) heap_init: At 3FFAE6E0 len 0000F480 (61 KiB): DRAM[0m
+[0;32mI (515) heap_init: At 3FFCD6E8 len 00012918 (74 KiB): DRAM[0m
+[0;32mI (521) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (528) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (534) heap_init: At 4009AB50 len 000054B0 (21 KiB): IRAM[0m
+[0;33mW (542) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (554) spi_flash: detected chip: generic[0m
+[0;32mI (559) spi_flash: flash io: dio[0m
+[0;33mW (563) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (576) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (587) coexist: coex firmware version: 093e3d2[0m
+[0;32mI (593) main_task: Started on CPU0[0m
+[0;32mI (603) main_task: Calling app_main()[0m
+[0;32mI (623) MAIN: Initializing config manager...[0m
+[0;32mI (633) CONFIG_MGR: Config manager initialized[0m
+[0;32mI (633) CORE: === MOY CONTROLLER v1.0.0 ===[0m
+[0;32mI (633) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (643) PLATFORM: Chip: ESP32[0m
+[0;32mI (643) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (643) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (653) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (653) PLATFORM: WiFi 6: NO[0m
+[0;32mI (663) PLATFORM: BLE: YES[0m
+[0;32mI (663) PLATFORM: USB OTG: NO[0m
+[0;32mI (663) CORE: Platform: ESP32[0m
+[0;32mI (673) CORE: CPU: 160 MHz, Free RAM: 209 KB[0m
+[0;32mI (673) CONFIG: Configuration loaded[0m
+[0;32mI (683) MODULE: Registered: gpio v2.0.0[0m
+[0;32mI (683) MODULE: Registered: web 1.0.0[0m
+[0;32mI (683) MODULE: Registered: test v1.0.0[0m
+[0;32mI (693) MODULE: Registered: sensor_min v1.0.0[0m
+[0;32mI (693) MODULE: Registered: pin_manager v1.0.0[0m
+[0;32mI (703) MODULE: Initializing all modules...[0m
+[0;32mI (703) GPIO: Init GPIO module (v6.0)[0m
+[0;32mI (713) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (713) PLATFORM: Chip: ESP32[0m
+[0;32mI (723) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (723) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (733) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (733) PLATFORM: WiFi 6: NO[0m
+[0;32mI (733) PLATFORM: BLE: YES[0m
+[0;32mI (743) PLATFORM: USB OTG: NO[0m
+[0;32mI (743) GPIO: Initializing 40 internal pins[0m
+[0;32mI (753) GPIO: Scanning for PCF8574...[0m
+[0;32mI (753) GPIO: Initializing I2C for PCF8574...[0m
+[0;32mI (763) GPIO: ✅ I2C initialized successfully[0m
+[0;32mI (763) GPIO: Found 0 PCF8574 expanders, total pins: 40[0m
+[0;32mI (773) GPIO: Total pins: 40[0m
+[0;32mI (773) MODULE: Init OK: gpio[0m
+[0;32mI (773) WEB: Init[0m
+[0;32mI (783) MODULE: Init OK: web[0m
+[0;32mI (783) TEST: Test module init[0m
+[0;32mI (783) MODULE: Init OK: test[0m
+[0;33mW (793) DS18B20: No DS18B20 sensors found on GPIO 4[0m
+[0;32mI (803) SENSOR: Sensor module initialized (16 pins, emulation)[0m
+[0;32mI (803) MODULE: Init OK: sensor_min[0m
+[0;32mI (803) PIN_MGR: Pin Manager module init[0m
+[0;32mI (813) MODULE: Init OK: pin_manager[0m
+[0;32mI (813) CORE: System ready! Heap: 205 KB[0m
+[0;32mI (823) WIFI: Wi-Fi Manager init[0m
+[0;32mI (833) wifi:wifi driver task: 3ffbd908, prio:23, stack:6656, core=0[0m
+[0;32mI (843) wifi:wifi firmware version: 0947e8b[0m
+[0;32mI (843) wifi:wifi certification version: v7.0[0m
+[0;32mI (843) wifi:config NVS flash: enabled[0m
+[0;32mI (843) wifi:config nano formatting: disabled[0m
+[0;32mI (853) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (853) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (863) wifi:Init management short buffer num: 32[0m
+[0;32mI (863) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (873) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (873) wifi:Init static rx buffer num: 10[0m
+[0;32mI (873) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (883) wifi_init: rx ba win: 6[0m
+[0;32mI (883) wifi_init: accept mbox: 6[0m
+[0;32mI (893) wifi_init: tcpip mbox: 32[0m
+[0;32mI (893) wifi_init: udp mbox: 6[0m
+[0;32mI (893) wifi_init: tcp mbox: 6[0m
+[0;32mI (903) wifi_init: tcp tx win: 5760[0m
+[0;32mI (903) wifi_init: tcp rx win: 5760[0m
+[0;32mI (913) wifi_init: tcp mss: 1440[0m
+[0;32mI (913) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (913) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (923) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (1013) wifi:mode : sta (28:05:a5:34:d7:44)[0m
+[0;32mI (1013) wifi:enable tsf[0m
+[0;32mI (1023) WIFI: Connecting to Wi-Fi: Keenetic-9598...[0m
+[0;32mI (1033) wifi:new:<6,2>, old:<1,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1033) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2043) wifi:state: auth -> init (0x200)[0m
+[0;32mI (2053) wifi:new:<6,0>, old:<6,2>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4493) wifi:new:<6,2>, old:<6,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4493) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (4503) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (4523) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (4553) wifi:connected with Keenetic-9598, aid = 8, channel 6, 40D, bssid = 9c:56:36:1b:80:f4[0m
+[0;32mI (4553) wifi:security: WPA2-PSK, phy: bgn, rssi: -66, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (4563) wifi:pm start, type: 1[0m
+
+[0;32mI (4563) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4653) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (5963) esp_netif_handlers: sta ip: 192.168.1.133, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (5963) WIFI: ✅ Got IP: 192.168.1.133[0m
+[0;32mI (5963) WIFI: ✅ Connected![0m
+[0;32mI (5963) MODULE: Starting all modules...[0m
+[0;32mI (5973) GPIO: GPIO started[0m
+[0;32mI (5973) MODULE: Start OK: gpio[0m
+[0;32mI (5983) WEBSERVER: ✅ Webserver started on port 80[0m
+[0;32mI (5983) MODULE: Start OK: web[0m
+[0;32mI (5983) TEST: Started[0m
+[0;32mI (5993) MODULE: Start OK: test[0m
+[0;32mI (5993) SENSOR: Sensor module started[0m
+[0;32mI (6003) MODULE: Start OK: sensor_min[0m
+[0;32mI (6003) PIN_MGR: Pin Manager module started[0m
+[0;32mI (6003) MODULE: Start OK: pin_manager[0m
+[0;32mI (6013) MAIN: Applying saved pin configurations...[0m
+[0;32mI (6013) MAIN: No saved pin configurations found, using defaults[0m
+[0;32mI (6023) MAIN: System ready![0m
+[0;32mI (6023) MAIN: ✅ System ready! Heap: 151 KB[0m
+[0;32mI (7113) wifi:<ba-add>idx:0 (ifx:0, 9c:56:36:1b:80:f4), tid:0, ssn:1, winSize:64[0m
+[0;33mW (48183) httpd_txrx: httpd_resp_send_err: 500 Internal Server Error - Failed to load configs[0m
+Guru Meditation Error: Core  0 panic'ed (LoadProhibited). Exception was unhandled.
+
+Core  0 register dump:
+PC      : 0x4008d28e  PS      : 0x00060033  A0      : 0x4008bfb7  A1      : 0x3ffd86d0  
+A2      : 0x3ffd9350  A3      : 0x00000000  A4      : 0x3ff000dc  A5      : 0x4008bee6  
+A6      : 0x3ffc1e14  A7      : 0x00000001  A8      : 0x00000000  A9      : 0x00060720  
+A10     : 0x00000000  A11     : 0xffffffff  A12     : 0x3ffc7384  A13     : 0x00060023  
+A14     : 0x00000000  A15     : 0x0000cdcd  SAR     : 0x0000001a  EXCCAUSE: 0x0000001c  
+EXCVADDR: 0x00060720  LBEG    : 0x4000c2e0  LEND    : 0x4000c2f6  LCOUNT  : 0xffffffff  
+
+
+Backtrace: 0x4008d28b:0x3ffd86d0 0x4008bfb4:0x3ffd86f0 0x4008bf66:0xa5a5a5a5 |<-CORRUPTED
+
+
+
+
+ELF file SHA256: 981521e42
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.4-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 28 2026 19:44:36[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=289ach (166316) map[0m
+[0;32mI (143) esp_image: segment 1: paddr=000389d4 vaddr=3ffbdb60 size=07644h ( 30276) load[0m
+[0;32mI (155) esp_image: segment 2: paddr=00040020 vaddr=400d0020 size=98b50h (625488) map[0m
+[0;32mI (369) esp_image: segment 3: paddr=000d8b78 vaddr=3ffc51a4 size=01c54h (  7252) load[0m
+[0;32mI (372) esp_image: segment 4: paddr=000da7d4 vaddr=40080000 size=1ab50h (109392) load[0m
+[0;32mI (415) esp_image: segment 5: paddr=000f532c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (430) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (430) boot: Disabling RNG early entropy source...[0m
+[0;32mI (440) cpu_start: Multicore app[0m
+[0;32mI (449) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (449) cpu_start: Pro cpu start user code[0m
+[0;32mI (449) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (454) app_init: Application information:[0m
+[0;32mI (458) app_init: Project name:     moy_controller[0m
+[0;32mI (464) app_init: App version:      v3.0-scada-full-5-gfcd2b24-dirt[0m
+[0;32mI (471) app_init: Compile time:     Jun 28 2026 19:44:17[0m
+[0;32mI (477) app_init: ELF file SHA256:  981521e42...[0m
+[0;32mI (482) app_init: ESP-IDF:          v5.5.4-dirty[0m
+[0;32mI (487) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (492) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (497) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (502) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (509) heap_init: At 3FFAE6E0 len 0000F480 (61 KiB): DRAM[0m
+[0;32mI (515) heap_init: At 3FFCD6E8 len 00012918 (74 KiB): DRAM[0m
+[0;32mI (521) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (528) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (534) heap_init: At 4009AB50 len 000054B0 (21 KiB): IRAM[0m
+[0;33mW (542) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (554) spi_flash: detected chip: generic[0m
+[0;32mI (559) spi_flash: flash io: dio[0m
+[0;33mW (563) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (576) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (587) coexist: coex firmware version: 093e3d2[0m
+[0;32mI (593) main_task: Started on CPU0[0m
+[0;32mI (603) main_task: Calling app_main()[0m
+[0;32mI (623) MAIN: Initializing config manager...[0m
+[0;32mI (633) CONFIG_MGR: Config manager initialized[0m
+[0;32mI (633) CORE: === MOY CONTROLLER v1.0.0 ===[0m
+[0;32mI (633) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (643) PLATFORM: Chip: ESP32[0m
+[0;32mI (643) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (643) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (653) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (653) PLATFORM: WiFi 6: NO[0m
+[0;32mI (663) PLATFORM: BLE: YES[0m
+[0;32mI (663) PLATFORM: USB OTG: NO[0m
+[0;32mI (663) CORE: Platform: ESP32[0m
+[0;32mI (673) CORE: CPU: 160 MHz, Free RAM: 209 KB[0m
+[0;32mI (673) CONFIG: Configuration loaded[0m
+[0;32mI (683) MODULE: Registered: gpio v2.0.0[0m
+[0;32mI (683) MODULE: Registered: web 1.0.0[0m
+[0;32mI (683) MODULE: Registered: test v1.0.0[0m
+[0;32mI (693) MODULE: Registered: sensor_min v1.0.0[0m
+[0;32mI (693) MODULE: Registered: pin_manager v1.0.0[0m
+[0;32mI (703) MODULE: Initializing all modules...[0m
+[0;32mI (703) GPIO: Init GPIO module (v6.0)[0m
+[0;32mI (713) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (713) PLATFORM: Chip: ESP32[0m
+[0;32mI (723) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (723) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (733) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (733) PLATFORM: WiFi 6: NO[0m
+[0;32mI (733) PLATFORM: BLE: YES[0m
+[0;32mI (743) PLATFORM: USB OTG: NO[0m
+[0;32mI (743) GPIO: Initializing 40 internal pins[0m
+[0;32mI (753) GPIO: Scanning for PCF8574...[0m
+[0;32mI (753) GPIO: Initializing I2C for PCF8574...[0m
+[0;32mI (763) GPIO: ✅ I2C initialized successfully[0m
+[0;32mI (763) GPIO: Found 0 PCF8574 expanders, total pins: 40[0m
+[0;32mI (773) GPIO: Total pins: 40[0m
+[0;32mI (773) MODULE: Init OK: gpio[0m
+[0;32mI (773) WEB: Init[0m
+[0;32mI (783) MODULE: Init OK: web[0m
+[0;32mI (783) TEST: Test module init[0m
+[0;32mI (783) MODULE: Init OK: test[0m
+[0;33mW (793) DS18B20: No DS18B20 sensors found on GPIO 4[0m
+[0;32mI (803) SENSOR: Sensor module initialized (16 pins, emulation)[0m
+[0;32mI (803) MODULE: Init OK: sensor_min[0m
+[0;32mI (803) PIN_MGR: Pin Manager module init[0m
+[0;32mI (813) MODULE: Init OK: pin_manager[0m
+[0;32mI (813) CORE: System ready! Heap: 205 KB[0m
+[0;32mI (823) WIFI: Wi-Fi Manager init[0m
+[0;32mI (833) wifi:wifi driver task: 3ffbd908, prio:23, stack:6656, core=0[0m
+[0;32mI (843) wifi:wifi firmware version: 0947e8b[0m
+[0;32mI (843) wifi:wifi certification version: v7.0[0m
+[0;32mI (843) wifi:config NVS flash: enabled[0m
+[0;32mI (843) wifi:config nano formatting: disabled[0m
+[0;32mI (853) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (853) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (863) wifi:Init management short buffer num: 32[0m
+[0;32mI (863) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (873) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (873) wifi:Init static rx buffer num: 10[0m
+[0;32mI (873) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (883) wifi_init: rx ba win: 6[0m
+[0;32mI (883) wifi_init: accept mbox: 6[0m
+[0;32mI (893) wifi_init: tcpip mbox: 32[0m
+[0;32mI (893) wifi_init: udp mbox: 6[0m
+[0;32mI (893) wifi_init: tcp mbox: 6[0m
+[0;32mI (903) wifi_init: tcp tx win: 5760[0m
+[0;32mI (903) wifi_init: tcp rx win: 5760[0m
+[0;32mI (913) wifi_init: tcp mss: 1440[0m
+[0;32mI (913) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (913) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (923) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (1013) wifi:mode : sta (28:05:a5:34:d7:44)[0m
+[0;32mI (1013) wifi:enable tsf[0m
+[0;32mI (1023) WIFI: Connecting to Wi-Fi: Keenetic-9598...[0m
+[0;32mI (1033) wifi:new:<6,2>, old:<1,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1033) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2033) wifi:state: auth -> init (0x200)[0m
+[0;32mI (2053) wifi:new:<6,0>, old:<6,2>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4483) wifi:new:<6,2>, old:<6,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4493) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (4503) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (4513) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (4533) wifi:connected with Keenetic-9598, aid = 8, channel 6, 40D, bssid = 9c:56:36:1b:80:f4[0m
+[0;32mI (4533) wifi:security: WPA2-PSK, phy: bgn, rssi: -64, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (4543) wifi:pm start, type: 1[0m
+
+[0;32mI (4543) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4613) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (4933) wifi:<ba-add>idx:0 (ifx:0, 9c:56:36:1b:80:f4), tid:0, ssn:1, winSize:64[0m
+[0;32mI (5923) esp_netif_handlers: sta ip: 192.168.1.133, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (5923) WIFI: ✅ Got IP: 192.168.1.133[0m
+[0;32mI (5923) WIFI: ✅ Connected![0m
+[0;32mI (5923) MODULE: Starting all modules...[0m
+[0;32mI (5933) GPIO: GPIO started[0m
+[0;32mI (5933) MODULE: Start OK: gpio[0m
+[0;32mI (5943) WEBSERVER: ✅ Webserver started on port 80[0m
+[0;32mI (5943) MODULE: Start OK: web[0m
+[0;32mI (5943) TEST: Started[0m
+[0;32mI (5953) MODULE: Start OK: test[0m
+[0;32mI (5953) SENSOR: Sensor module started[0m
+[0;32mI (5953) MODULE: Start OK: sensor_min[0m
+[0;32mI (5963) PIN_MGR: Pin Manager module started[0m
+[0;32mI (5963) MODULE: Start OK: pin_manager[0m
+[0;32mI (5973) MAIN: Applying saved pin configurations...[0m
+[0;32mI (5973) MAIN: No saved pin configurations found, using defaults[0m
+[0;32mI (5983) MAIN: System ready![0m
+[0;32mI (5983) MAIN: ✅ System ready! Heap: 151 KB[0m
+[0;33mW (9573) httpd_txrx: httpd_resp_send_err: 500 Internal Server Error - Failed to load configs[0m
+Guru Meditation Error: Core  0 panic'ed (StoreProhibited). Exception was unhandled.
+
+Core  0 register dump:
+PC      : 0x4008c614  PS      : 0x00060733  A0      : 0x8008e065  A1      : 0x3ffd8400  
+A2      : 0x3ffd8298  A3      : 0xffffffff  A4      : 0x00000019  A5      : 0x00060723  
+A6      : 0x00000005  A7      : 0x0000cdcd  A8      : 0x3ffc71dc  A9      : 0x00060b23  
+A10     : 0x3ffc71e4  A11     : 0x00000000  A12     : 0xb33fffff  A13     : 0x3ffd8550  
+A14     : 0x3ffd8750  A15     : 0xff000000  SAR     : 0x00000004  EXCCAUSE: 0x0000001d  
+EXCVADDR: 0x00060b27  LBEG    : 0x400014fd  LEND    : 0x4000150d  LCOUNT  : 0xfffffffa  
+
+
+Backtrace: 0x4008c611:0x3ffd8400 0x4008e062:0x3ffd8420 0x4008b09f:0x3ffd8440 0x4008b4d8:0x3ffd8460 0x4008b626:0x3ffd84a0 0x40082c67:0x3ffd84c0 0x40082d39:0x3ffd84f0 0x40082d86:0x3ffd8510 0x4015d267:0x3ffd8540 0x401539cd:0x3ffd8860 0x4009187b:0x3ffd8890 0x400e9bab:0x3ffd88f0 0x400daded:0x3ffd8940 0x400ea171:0x3ffd9190 0x400e89ef:0x3ffd91d0 0x400e8bac:0x3ffd9260 0x400e953c:0x3ffd9290 0x400e773c:0x3ffd92b0 0x4015f4bf:0x3ffd92e0 0x400e7f0a:0x3ffd9300 0x400e7f9e:0x3ffd9350 0x4008bae5:0x3ffd9370
+
+
+
+
+ELF file SHA256: 981521e42
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.4-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 28 2026 19:44:36[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=289ach (166316) map[0m
+[0;32mI (143) esp_image: segment 1: paddr=000389d4 vaddr=3ffbdb60 size=07644h ( 30276) load[0m
+[0;32mI (155) esp_image: segment 2: paddr=00040020 vaddr=400d0020 size=98b50h (625488) map[0m
+[0;32mI (369) esp_image: segment 3: paddr=000d8b78 vaddr=3ffc51a4 size=01c54h (  7252) load[0m
+[0;32mI (372) esp_image: segment 4: paddr=000da7d4 vaddr=40080000 size=1ab50h (109392) load[0m
+[0;32mI (415) esp_image: segment 5: paddr=000f532c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (430) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (430) boot: Disabling RNG early entropy source...[0m
+[0;32mI (440) cpu_start: Multicore app[0m
+[0;32mI (449) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (449) cpu_start: Pro cpu start user code[0m
+[0;32mI (449) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (454) app_init: Application information:[0m
+[0;32mI (458) app_init: Project name:     moy_controller[0m
+[0;32mI (464) app_init: App version:      v3.0-scada-full-5-gfcd2b24-dirt[0m
+[0;32mI (471) app_init: Compile time:     Jun 28 2026 19:44:17[0m
+[0;32mI (477) app_init: ELF file SHA256:  981521e42...[0m
+[0;32mI (482) app_init: ESP-IDF:          v5.5.4-dirty[0m
+[0;32mI (487) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (492) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (497) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (502) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (509) heap_init: At 3FFAE6E0 len 0000F480 (61 KiB): DRAM[0m
+[0;32mI (515) heap_init: At 3FFCD6E8 len 00012918 (74 KiB): DRAM[0m
+[0;32mI (521) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (528) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (534) heap_init: At 4009AB50 len 000054B0 (21 KiB): IRAM[0m
+[0;33mW (542) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (554) spi_flash: detected chip: generic[0m
+[0;32mI (559) spi_flash: flash io: dio[0m
+[0;33mW (563) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (576) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (587) coexist: coex firmware version: 093e3d2[0m
+[0;32mI (593) main_task: Started on CPU0[0m
+[0;32mI (603) main_task: Calling app_main()[0m
+[0;32mI (623) MAIN: Initializing config manager...[0m
+[0;32mI (633) CONFIG_MGR: Config manager initialized[0m
+[0;32mI (633) CORE: === MOY CONTROLLER v1.0.0 ===[0m
+[0;32mI (633) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (643) PLATFORM: Chip: ESP32[0m
+[0;32mI (643) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (643) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (653) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (653) PLATFORM: WiFi 6: NO[0m
+[0;32mI (663) PLATFORM: BLE: YES[0m
+[0;32mI (663) PLATFORM: USB OTG: NO[0m
+[0;32mI (663) CORE: Platform: ESP32[0m
+[0;32mI (673) CORE: CPU: 160 MHz, Free RAM: 209 KB[0m
+[0;32mI (673) CONFIG: Configuration loaded[0m
+[0;32mI (683) MODULE: Registered: gpio v2.0.0[0m
+[0;32mI (683) MODULE: Registered: web 1.0.0[0m
+[0;32mI (683) MODULE: Registered: test v1.0.0[0m
+[0;32mI (693) MODULE: Registered: sensor_min v1.0.0[0m
+[0;32mI (693) MODULE: Registered: pin_manager v1.0.0[0m
+[0;32mI (703) MODULE: Initializing all modules...[0m
+[0;32mI (703) GPIO: Init GPIO module (v6.0)[0m
+[0;32mI (713) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (713) PLATFORM: Chip: ESP32[0m
+[0;32mI (723) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (723) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (733) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (733) PLATFORM: WiFi 6: NO[0m
+[0;32mI (733) PLATFORM: BLE: YES[0m
+[0;32mI (743) PLATFORM: USB OTG: NO[0m
+[0;32mI (743) GPIO: Initializing 40 internal pins[0m
+[0;32mI (753) GPIO: Scanning for PCF8574...[0m
+[0;32mI (753) GPIO: Initializing I2C for PCF8574...[0m
+[0;32mI (763) GPIO: ✅ I2C initialized successfully[0m
+[0;32mI (763) GPIO: Found 0 PCF8574 expanders, total pins: 40[0m
+[0;32mI (773) GPIO: Total pins: 40[0m
+[0;32mI (773) MODULE: Init OK: gpio[0m
+[0;32mI (773) WEB: Init[0m
+[0;32mI (783) MODULE: Init OK: web[0m
+[0;32mI (783) TEST: Test module init[0m
+[0;32mI (783) MODULE: Init OK: test[0m
+[0;33mW (793) DS18B20: No DS18B20 sensors found on GPIO 4[0m
+[0;32mI (803) SENSOR: Sensor module initialized (16 pins, emulation)[0m
+[0;32mI (803) MODULE: Init OK: sensor_min[0m
+[0;32mI (803) PIN_MGR: Pin Manager module init[0m
+[0;32mI (813) MODULE: Init OK: pin_manager[0m
+[0;32mI (813) CORE: System ready! Heap: 205 KB[0m
+[0;32mI (823) WIFI: Wi-Fi Manager init[0m
+[0;32mI (833) wifi:wifi driver task: 3ffbd908, prio:23, stack:6656, core=0[0m
+[0;32mI (843) wifi:wifi firmware version: 0947e8b[0m
+[0;32mI (843) wifi:wifi certification version: v7.0[0m
+[0;32mI (843) wifi:config NVS flash: enabled[0m
+[0;32mI (843) wifi:config nano formatting: disabled[0m
+[0;32mI (853) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (853) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (863) wifi:Init management short buffer num: 32[0m
+[0;32mI (863) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (873) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (873) wifi:Init static rx buffer num: 10[0m
+[0;32mI (873) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (883) wifi_init: rx ba win: 6[0m
+[0;32mI (883) wifi_init: accept mbox: 6[0m
+[0;32mI (893) wifi_init: tcpip mbox: 32[0m
+[0;32mI (893) wifi_init: udp mbox: 6[0m
+[0;32mI (893) wifi_init: tcp mbox: 6[0m
+[0;32mI (903) wifi_init: tcp tx win: 5760[0m
+[0;32mI (903) wifi_init: tcp rx win: 5760[0m
+[0;32mI (913) wifi_init: tcp mss: 1440[0m
+[0;32mI (913) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (913) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (923) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (1013) wifi:mode : sta (28:05:a5:34:d7:44)[0m
+[0;32mI (1013) wifi:enable tsf[0m
+[0;32mI (1013) WIFI: Connecting to Wi-Fi: Keenetic-9598...[0m
+[0;32mI (1033) wifi:new:<6,2>, old:<1,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1033) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2043) wifi:state: auth -> init (0x200)[0m
+[0;32mI (2053) wifi:new:<6,0>, old:<6,2>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4483) wifi:new:<6,2>, old:<6,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4483) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (4503) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (4513) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (4543) wifi:connected with Keenetic-9598, aid = 8, channel 6, 40D, bssid = 9c:56:36:1b:80:f4[0m
+[0;32mI (4543) wifi:security: WPA2-PSK, phy: bgn, rssi: -67, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (4553) wifi:pm start, type: 1[0m
+
+[0;32mI (4553) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4643) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (5823) wifi:<ba-add>idx:0 (ifx:0, 9c:56:36:1b:80:f4), tid:0, ssn:1, winSize:64[0m
+[0;32mI (5953) esp_netif_handlers: sta ip: 192.168.1.133, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (5953) WIFI: ✅ Got IP: 192.168.1.133[0m
+[0;32mI (5953) WIFI: ✅ Connected![0m
+[0;32mI (5953) MODULE: Starting all modules...[0m
+[0;32mI (5963) GPIO: GPIO started[0m
+[0;32mI (5963) MODULE: Start OK: gpio[0m
+[0;32mI (5973) WEBSERVER: ✅ Webserver started on port 80[0m
+[0;32mI (5973) MODULE: Start OK: web[0m
+[0;32mI (5973) TEST: Started[0m
+[0;32mI (5983) MODULE: Start OK: test[0m
+[0;32mI (5983) SENSOR: Sensor module started[0m
+[0;32mI (5983) MODULE: Start OK: sensor_min[0m
+[0;32mI (5993) PIN_MGR: Pin Manager module started[0m
+[0;32mI (5993) MODULE: Start OK: pin_manager[0m
+[0;32mI (6003) MAIN: Applying saved pin configurations...[0m
+[0;32mI (6003) MAIN: No saved pin configurations found, using defaults[0m
+[0;32mI (6013) MAIN: System ready![0m
+[0;32mI (6013) MAIN: ✅ System ready! Heap: 151 KB[0m
+[0;33mW (9573) httpd_txrx: httpd_resp_send_err: 500 Internal Server Error - Failed to load configs[0m
+
+***ERROR*** A stack overflow in task httpd has been detected.
+
+
+Backtrace: 0x4008ae65:0x3ffd8640 0x4008ae2d:0x3ffd8660 0x4008beaa:0x3ffd8680 0x4008d2bb:0x3ffd8700 0x4008bfb4:0x3ffd8720 0x4008bf66:0xa5a5a5a5 |<-CORRUPTED
+
+
+
+
+ELF file SHA256: 981521e42
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.4-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 28 2026 19:44:36[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=289ach (166316) map[0m
+[0;32mI (143) esp_image: segment 1: paddr=000389d4 vaddr=3ffbdb60 size=07644h ( 30276) load[0m
+[0;32mI (155) esp_image: segment 2: paddr=00040020 vaddr=400d0020 size=98b50h (625488) map[0m
+[0;32mI (369) esp_image: segment 3: paddr=000d8b78 vaddr=3ffc51a4 size=01c54h (  7252) load[0m
+[0;32mI (372) esp_image: segment 4: paddr=000da7d4 vaddr=40080000 size=1ab50h (109392) load[0m
+[0;32mI (415) esp_image: segment 5: paddr=000f532c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (430) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (430) boot: Disabling RNG early entropy source...[0m
+[0;32mI (440) cpu_start: Multicore app[0m
+[0;32mI (449) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (449) cpu_start: Pro cpu start user code[0m
+[0;32mI (449) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (454) app_init: Application information:[0m
+[0;32mI (458) app_init: Project name:     moy_controller[0m
+[0;32mI (464) app_init: App version:      v3.0-scada-full-5-gfcd2b24-dirt[0m
+[0;32mI (471) app_init: Compile time:     Jun 28 2026 19:44:17[0m
+[0;32mI (477) app_init: ELF file SHA256:  981521e42...[0m
+[0;32mI (482) app_init: ESP-IDF:          v5.5.4-dirty[0m
+[0;32mI (487) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (492) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (497) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (502) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (509) heap_init: At 3FFAE6E0 len 0000F480 (61 KiB): DRAM[0m
+[0;32mI (515) heap_init: At 3FFCD6E8 len 00012918 (74 KiB): DRAM[0m
+[0;32mI (521) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (528) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (534) heap_init: At 4009AB50 len 000054B0 (21 KiB): IRAM[0m
+[0;33mW (542) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (554) spi_flash: detected chip: generic[0m
+[0;32mI (559) spi_flash: flash io: dio[0m
+[0;33mW (563) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (576) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (587) coexist: coex firmware version: 093e3d2[0m
+[0;32mI (593) main_task: Started on CPU0[0m
+[0;32mI (603) main_task: Calling app_main()[0m
+[0;32mI (623) MAIN: Initializing config manager...[0m
+[0;32mI (633) CONFIG_MGR: Config manager initialized[0m
+[0;32mI (633) CORE: === MOY CONTROLLER v1.0.0 ===[0m
+[0;32mI (633) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (643) PLATFORM: Chip: ESP32[0m
+[0;32mI (643) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (643) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (653) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (653) PLATFORM: WiFi 6: NO[0m
+[0;32mI (663) PLATFORM: BLE: YES[0m
+[0;32mI (663) PLATFORM: USB OTG: NO[0m
+[0;32mI (663) CORE: Platform: ESP32[0m
+[0;32mI (673) CORE: CPU: 160 MHz, Free RAM: 209 KB[0m
+[0;32mI (673) CONFIG: Configuration loaded[0m
+[0;32mI (683) MODULE: Registered: gpio v2.0.0[0m
+[0;32mI (683) MODULE: Registered: web 1.0.0[0m
+[0;32mI (683) MODULE: Registered: test v1.0.0[0m
+[0;32mI (693) MODULE: Registered: sensor_min v1.0.0[0m
+[0;32mI (693) MODULE: Registered: pin_manager v1.0.0[0m
+[0;32mI (703) MODULE: Initializing all modules...[0m
+[0;32mI (703) GPIO: Init GPIO module (v6.0)[0m
+[0;32mI (713) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (713) PLATFORM: Chip: ESP32[0m
+[0;32mI (723) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (723) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (733) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (733) PLATFORM: WiFi 6: NO[0m
+[0;32mI (733) PLATFORM: BLE: YES[0m
+[0;32mI (743) PLATFORM: USB OTG: NO[0m
+[0;32mI (743) GPIO: Initializing 40 internal pins[0m
+[0;32mI (753) GPIO: Scanning for PCF8574...[0m
+[0;32mI (753) GPIO: Initializing I2C for PCF8574...[0m
+[0;32mI (763) GPIO: ✅ I2C initialized successfully[0m
+[0;32mI (763) GPIO: Found 0 PCF8574 expanders, total pins: 40[0m
+[0;32mI (773) GPIO: Total pins: 40[0m
+[0;32mI (773) MODULE: Init OK: gpio[0m
+[0;32mI (773) WEB: Init[0m
+[0;32mI (783) MODULE: Init OK: web[0m
+[0;32mI (783) TEST: Test module init[0m
+[0;32mI (783) MODULE: Init OK: test[0m
+[0;33mW (793) DS18B20: No DS18B20 sensors found on GPIO 4[0m
+[0;32mI (803) SENSOR: Sensor module initialized (16 pins, emulation)[0m
+[0;32mI (803) MODULE: Init OK: sensor_min[0m
+[0;32mI (803) PIN_MGR: Pin Manager module init[0m
+[0;32mI (813) MODULE: Init OK: pin_manager[0m
+[0;32mI (813) CORE: System ready! Heap: 205 KB[0m
+[0;32mI (823) WIFI: Wi-Fi Manager init[0m
+[0;32mI (833) wifi:wifi driver task: 3ffbd908, prio:23, stack:6656, core=0[0m
+[0;32mI (843) wifi:wifi firmware version: 0947e8b[0m
+[0;32mI (843) wifi:wifi certification version: v7.0[0m
+[0;32mI (843) wifi:config NVS flash: enabled[0m
+[0;32mI (843) wifi:config nano formatting: disabled[0m
+[0;32mI (853) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (853) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (863) wifi:Init management short buffer num: 32[0m
+[0;32mI (863) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (873) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (873) wifi:Init static rx buffer num: 10[0m
+[0;32mI (873) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (883) wifi_init: rx ba win: 6[0m
+[0;32mI (883) wifi_init: accept mbox: 6[0m
+[0;32mI (893) wifi_init: tcpip mbox: 32[0m
+[0;32mI (893) wifi_init: udp mbox: 6[0m
+[0;32mI (893) wifi_init: tcp mbox: 6[0m
+[0;32mI (903) wifi_init: tcp tx win: 5760[0m
+[0;32mI (903) wifi_init: tcp rx win: 5760[0m
+[0;32mI (913) wifi_init: tcp mss: 1440[0m
+[0;32mI (913) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (913) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (923) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (1013) wifi:mode : sta (28:05:a5:34:d7:44)[0m
+[0;32mI (1013) wifi:enable tsf[0m
+[0;32mI (1013) WIFI: Connecting to Wi-Fi: Keenetic-9598...[0m
+[0;32mI (1033) wifi:new:<6,2>, old:<1,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1033) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2033) wifi:state: auth -> init (0x200)[0m
+[0;32mI (2053) wifi:new:<6,0>, old:<6,2>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4483) wifi:new:<6,2>, old:<6,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4493) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (4503) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (4513) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (4543) wifi:connected with Keenetic-9598, aid = 8, channel 6, 40D, bssid = 9c:56:36:1b:80:f4[0m
+[0;32mI (4543) wifi:security: WPA2-PSK, phy: bgn, rssi: -66, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (4553) wifi:pm start, type: 1[0m
+
+[0;32mI (4553) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4563) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (5973) esp_netif_handlers: sta ip: 192.168.1.133, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (5973) WIFI: ✅ Got IP: 192.168.1.133[0m
+[0;32mI (5973) WIFI: ✅ Connected![0m
+[0;32mI (5973) MODULE: Starting all modules...[0m
+[0;32mI (5983) GPIO: GPIO started[0m
+[0;32mI (5983) MODULE: Start OK: gpio[0m
+[0;32mI (5993) WEBSERVER: ✅ Webserver started on port 80[0m
+[0;32mI (5993) MODULE: Start OK: web[0m
+[0;32mI (5993) TEST: Started[0m
+[0;32mI (6003) MODULE: Start OK: test[0m
+[0;32mI (6003) SENSOR: Sensor module started[0m
+[0;32mI (6013) MODULE: Start OK: sensor_min[0m
+[0;32mI (6013) PIN_MGR: Pin Manager module started[0m
+[0;32mI (6013) MODULE: Start OK: pin_manager[0m
+[0;32mI (6023) MAIN: Applying saved pin configurations...[0m
+[0;32mI (6023) MAIN: No saved pin configurations found, using defaults[0m
+[0;32mI (6033) MAIN: System ready![0m
+[0;32mI (6033) MAIN: ✅ System ready! Heap: 151 KB[0m
+[0;32mI (7433) wifi:<ba-add>idx:0 (ifx:0, 9c:56:36:1b:80:f4), tid:0, ssn:1, winSize:64[0m
+[0;33mW (9583) httpd_txrx: httpd_resp_send_err: 500 Internal Server Error - Failed to load configs[0m
+Guru Meditation Error: Core  0 panic'ed (LoadProhibited). Exception was unhandled.
+
+Core  0 register dump:
+PC      : 0x4008d28e  PS      : 0x00060033  A0      : 0x4008bfb7  A1      : 0x3ffd86d0  
+A2      : 0x3ffd9350  A3      : 0x00000000  A4      : 0x3ff000dc  A5      : 0x4008bee6  
+A6      : 0x3ffc1e14  A7      : 0x00000001  A8      : 0x00000000  A9      : 0x00060320  
+A10     : 0x00000000  A11     : 0xffffffff  A12     : 0x3ffc7384  A13     : 0x00060023  
+A14     : 0x00000000  A15     : 0x0000cdcd  SAR     : 0x0000001d  EXCCAUSE: 0x0000001c  
+EXCVADDR: 0x00060320  LBEG    : 0x4000c2e0  LEND    : 0x4000c2f6  LCOUNT  : 0xffffffff  
+
+
+Backtrace: 0x4008d28b:0x3ffd86d0 0x4008bfb4:0x3ffd86f0 0x4008bf66:0xa5a5a5a5 |<-CORRUPTED
+
+
+
+
+ELF file SHA256: 981521e42
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.4-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 28 2026 19:44:36[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=289ach (166316) map[0m
+[0;32mI (143) esp_image: segment 1: paddr=000389d4 vaddr=3ffbdb60 size=07644h ( 30276) load[0m
+[0;32mI (155) esp_image: segment 2: paddr=00040020 vaddr=400d0020 size=98b50h (625488) map[0m
+[0;32mI (369) esp_image: segment 3: paddr=000d8b78 vaddr=3ffc51a4 size=01c54h (  7252) load[0m
+[0;32mI (372) esp_image: segment 4: paddr=000da7d4 vaddr=40080000 size=1ab50h (109392) load[0m
+[0;32mI (415) esp_image: segment 5: paddr=000f532c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (430) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (430) boot: Disabling RNG early entropy source...[0m
+[0;32mI (440) cpu_start: Multicore app[0m
+[0;32mI (449) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (449) cpu_start: Pro cpu start user code[0m
+[0;32mI (449) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (454) app_init: Application information:[0m
+[0;32mI (458) app_init: Project name:     moy_controller[0m
+[0;32mI (464) app_init: App version:      v3.0-scada-full-5-gfcd2b24-dirt[0m
+[0;32mI (471) app_init: Compile time:     Jun 28 2026 19:44:17[0m
+[0;32mI (477) app_init: ELF file SHA256:  981521e42...[0m
+[0;32mI (482) app_init: ESP-IDF:          v5.5.4-dirty[0m
+[0;32mI (487) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (492) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (497) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (502) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (509) heap_init: At 3FFAE6E0 len 0000F480 (61 KiB): DRAM[0m
+[0;32mI (515) heap_init: At 3FFCD6E8 len 00012918 (74 KiB): DRAM[0m
+[0;32mI (521) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (528) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (534) heap_init: At 4009AB50 len 000054B0 (21 KiB): IRAM[0m
+[0;33mW (542) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (554) spi_flash: detected chip: generic[0m
+[0;32mI (559) spi_flash: flash io: dio[0m
+[0;33mW (563) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (576) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (587) coexist: coex firmware version: 093e3d2[0m
+[0;32mI (593) main_task: Started on CPU0[0m
+[0;32mI (603) main_task: Calling app_main()[0m
+[0;32mI (623) MAIN: Initializing config manager...[0m
+[0;32mI (633) CONFIG_MGR: Config manager initialized[0m
+[0;32mI (633) CORE: === MOY CONTROLLER v1.0.0 ===[0m
+[0;32mI (633) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (643) PLATFORM: Chip: ESP32[0m
+[0;32mI (643) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (643) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (653) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (653) PLATFORM: WiFi 6: NO[0m
+[0;32mI (663) PLATFORM: BLE: YES[0m
+[0;32mI (663) PLATFORM: USB OTG: NO[0m
+[0;32mI (663) CORE: Platform: ESP32[0m
+[0;32mI (673) CORE: CPU: 160 MHz, Free RAM: 209 KB[0m
+[0;32mI (673) CONFIG: Configuration loaded[0m
+[0;32mI (683) MODULE: Registered: gpio v2.0.0[0m
+[0;32mI (683) MODULE: Registered: web 1.0.0[0m
+[0;32mI (683) MODULE: Registered: test v1.0.0[0m
+[0;32mI (693) MODULE: Registered: sensor_min v1.0.0[0m
+[0;32mI (693) MODULE: Registered: pin_manager v1.0.0[0m
+[0;32mI (703) MODULE: Initializing all modules...[0m
+[0;32mI (703) GPIO: Init GPIO module (v6.0)[0m
+[0;32mI (713) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (713) PLATFORM: Chip: ESP32[0m
+[0;32mI (723) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (723) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (733) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (733) PLATFORM: WiFi 6: NO[0m
+[0;32mI (733) PLATFORM: BLE: YES[0m
+[0;32mI (743) PLATFORM: USB OTG: NO[0m
+[0;32mI (743) GPIO: Initializing 40 internal pins[0m
+[0;32mI (753) GPIO: Scanning for PCF8574...[0m
+[0;32mI (753) GPIO: Initializing I2C for PCF8574...[0m
+[0;32mI (763) GPIO: ✅ I2C initialized successfully[0m
+[0;32mI (763) GPIO: Found 0 PCF8574 expanders, total pins: 40[0m
+[0;32mI (773) GPIO: Total pins: 40[0m
+[0;32mI (773) MODULE: Init OK: gpio[0m
+[0;32mI (773) WEB: Init[0m
+[0;32mI (783) MODULE: Init OK: web[0m
+[0;32mI (783) TEST: Test module init[0m
+[0;32mI (783) MODULE: Init OK: test[0m
+[0;33mW (793) DS18B20: No DS18B20 sensors found on GPIO 4[0m
+[0;32mI (803) SENSOR: Sensor module initialized (16 pins, emulation)[0m
+[0;32mI (803) MODULE: Init OK: sensor_min[0m
+[0;32mI (803) PIN_MGR: Pin Manager module init[0m
+[0;32mI (813) MODULE: Init OK: pin_manager[0m
+[0;32mI (813) CORE: System ready! Heap: 205 KB[0m
+[0;32mI (823) WIFI: Wi-Fi Manager init[0m
+[0;32mI (833) wifi:wifi driver task: 3ffbd908, prio:23, stack:6656, core=0[0m
+[0;32mI (843) wifi:wifi firmware version: 0947e8b[0m
+[0;32mI (843) wifi:wifi certification version: v7.0[0m
+[0;32mI (843) wifi:config NVS flash: enabled[0m
+[0;32mI (843) wifi:config nano formatting: disabled[0m
+[0;32mI (853) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (853) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (863) wifi:Init management short buffer num: 32[0m
+[0;32mI (863) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (873) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (873) wifi:Init static rx buffer num: 10[0m
+[0;32mI (873) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (883) wifi_init: rx ba win: 6[0m
+[0;32mI (883) wifi_init: accept mbox: 6[0m
+[0;32mI (893) wifi_init: tcpip mbox: 32[0m
+[0;32mI (893) wifi_init: udp mbox: 6[0m
+[0;32mI (893) wifi_init: tcp mbox: 6[0m
+[0;32mI (903) wifi_init: tcp tx win: 5760[0m
+[0;32mI (903) wifi_init: tcp rx win: 5760[0m
+[0;32mI (913) wifi_init: tcp mss: 1440[0m
+[0;32mI (913) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (913) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (923) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (1013) wifi:mode : sta (28:05:a5:34:d7:44)[0m
+[0;32mI (1013) wifi:enable tsf[0m
+[0;32mI (1013) WIFI: Connecting to Wi-Fi: Keenetic-9598...[0m
+[0;32mI (1033) wifi:new:<6,2>, old:<1,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1033) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2033) wifi:state: auth -> init (0x200)[0m
+[0;32mI (2043) wifi:new:<6,0>, old:<6,2>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4473) wifi:new:<6,2>, old:<6,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4473) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (4493) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (4503) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (4523) wifi:connected with Keenetic-9598, aid = 8, channel 6, 40D, bssid = 9c:56:36:1b:80:f4[0m
+[0;32mI (4523) wifi:security: WPA2-PSK, phy: bgn, rssi: -68, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (4533) wifi:pm start, type: 1[0m
+
+[0;32mI (4533) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4613) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (5823) wifi:<ba-add>idx:0 (ifx:0, 9c:56:36:1b:80:f4), tid:0, ssn:1, winSize:64[0m
+[0;32mI (5923) esp_netif_handlers: sta ip: 192.168.1.133, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (5923) WIFI: ✅ Got IP: 192.168.1.133[0m
+[0;32mI (5923) WIFI: ✅ Connected![0m
+[0;32mI (5923) MODULE: Starting all modules...[0m
+[0;32mI (5933) GPIO: GPIO started[0m
+[0;32mI (5933) MODULE: Start OK: gpio[0m
+[0;32mI (5943) WEBSERVER: ✅ Webserver started on port 80[0m
+[0;32mI (5943) MODULE: Start OK: web[0m
+[0;32mI (5943) TEST: Started[0m
+[0;32mI (5953) MODULE: Start OK: test[0m
+[0;32mI (5953) SENSOR: Sensor module started[0m
+[0;32mI (5953) MODULE: Start OK: sensor_min[0m
+[0;32mI (5963) PIN_MGR: Pin Manager module started[0m
+[0;32mI (5963) MODULE: Start OK: pin_manager[0m
+[0;32mI (5973) MAIN: Applying saved pin configurations...[0m
+[0;32mI (5973) MAIN: No saved pin configurations found, using defaults[0m
+[0;32mI (5983) MAIN: System ready![0m
+[0;32mI (5983) MAIN: ✅ System ready! Heap: 151 KB[0m
+[0;33mW (9543) httpd_txrx: httpd_resp_send_err: 500 Internal Server Error - Failed to load configs[0m
+
+***ERROR*** A stack overflow in task httpd has been detected.
+
+
+Backtrace: 0x4008ae65:0x3ffd8640 0x4008ae2d:0x3ffd8660 0x4008beaa:0x3ffd8680 0x4008d2bb:0x3ffd8700 0x4008bfb4:0x3ffd8720 0x4008bf66:0xa5a5a5a5 |<-CORRUPTED
+
+
+
+
+ELF file SHA256: 981521e42
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.4-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 28 2026 19:44:36[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=289ach (166316) map[0m
+[0;32mI (143) esp_image: segment 1: paddr=000389d4 vaddr=3ffbdb60 size=07644h ( 30276) load[0m
+[0;32mI (155) esp_image: segment 2: paddr=00040020 vaddr=400d0020 size=98b50h (625488) map[0m
+[0;32mI (369) esp_image: segment 3: paddr=000d8b78 vaddr=3ffc51a4 size=01c54h (  7252) load[0m
+[0;32mI (372) esp_image: segment 4: paddr=000da7d4 vaddr=40080000 size=1ab50h (109392) load[0m
+[0;32mI (415) esp_image: segment 5: paddr=000f532c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (430) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (430) boot: Disabling RNG early entropy source...[0m
+[0;32mI (440) cpu_start: Multicore app[0m
+[0;32mI (449) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (449) cpu_start: Pro cpu start user code[0m
+[0;32mI (449) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (454) app_init: Application information:[0m
+[0;32mI (458) app_init: Project name:     moy_controller[0m
+[0;32mI (464) app_init: App version:      v3.0-scada-full-5-gfcd2b24-dirt[0m
+[0;32mI (471) app_init: Compile time:     Jun 28 2026 19:44:17[0m
+[0;32mI (477) app_init: ELF file SHA256:  981521e42...[0m
+[0;32mI (482) app_init: ESP-IDF:          v5.5.4-dirty[0m
+[0;32mI (487) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (492) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (497) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (502) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (509) heap_init: At 3FFAE6E0 len 0000F480 (61 KiB): DRAM[0m
+[0;32mI (515) heap_init: At 3FFCD6E8 len 00012918 (74 KiB): DRAM[0m
+[0;32mI (521) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (528) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (534) heap_init: At 4009AB50 len 000054B0 (21 KiB): IRAM[0m
+[0;33mW (542) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (554) spi_flash: detected chip: generic[0m
+[0;32mI (559) spi_flash: flash io: dio[0m
+[0;33mW (563) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (576) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (587) coexist: coex firmware version: 093e3d2[0m
+[0;32mI (593) main_task: Started on CPU0[0m
+[0;32mI (603) main_task: Calling app_main()[0m
+[0;32mI (623) MAIN: Initializing config manager...[0m
+[0;32mI (633) CONFIG_MGR: Config manager initialized[0m
+[0;32mI (633) CORE: === MOY CONTROLLER v1.0.0 ===[0m
+[0;32mI (633) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (643) PLATFORM: Chip: ESP32[0m
+[0;32mI (643) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (643) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (653) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (653) PLATFORM: WiFi 6: NO[0m
+[0;32mI (663) PLATFORM: BLE: YES[0m
+[0;32mI (663) PLATFORM: USB OTG: NO[0m
+[0;32mI (663) CORE: Platform: ESP32[0m
+[0;32mI (673) CORE: CPU: 160 MHz, Free RAM: 209 KB[0m
+[0;32mI (673) CONFIG: Configuration loaded[0m
+[0;32mI (683) MODULE: Registered: gpio v2.0.0[0m
+[0;32mI (683) MODULE: Registered: web 1.0.0[0m
+[0;32mI (683) MODULE: Registered: test v1.0.0[0m
+[0;32mI (693) MODULE: Registered: sensor_min v1.0.0[0m
+[0;32mI (693) MODULE: Registered: pin_manager v1.0.0[0m
+[0;32mI (703) MODULE: Initializing all modules...[0m
+[0;32mI (703) GPIO: Init GPIO module (v6.0)[0m
+[0;32mI (713) PLATFORM: === ОПРЕДЕЛЕНА ПЛАТФОРМА ===[0m
+[0;32mI (713) PLATFORM: Chip: ESP32[0m
+[0;32mI (723) PLATFORM: Profile: MEDIUM[0m
+[0;32mI (723) PLATFORM: CPU: 160 MHz[0m
+[0;32mI (733) PLATFORM: Free RAM: 209 KB[0m
+[0;32mI (733) PLATFORM: WiFi 6: NO[0m
+[0;32mI (733) PLATFORM: BLE: YES[0m
+[0;32mI (743) PLATFORM: USB OTG: NO[0m
+[0;32mI (743) GPIO: Initializing 40 internal pins[0m
+[0;32mI (753) GPIO: Scanning for PCF8574...[0m
+[0;32mI (753) GPIO: Initializing I2C for PCF8574...[0m
+[0;32mI (763) GPIO: ✅ I2C initialized successfully[0m
+[0;32mI (763) GPIO: Found 0 PCF8574 expanders, total pins: 40[0m
+[0;32mI (773) GPIO: Total pins: 40[0m
+[0;32mI (773) MODULE: Init OK: gpio[0m
+[0;32mI (773) WEB: Init[0m
+[0;32mI (783) MODULE: Init OK: web[0m
+[0;32mI (783) TEST: Test module init[0m
+[0;32mI (783) MODULE: Init OK: test[0m
+[0;33mW (793) DS18B20: No DS18B20 sensors found on GPIO 4[0m
+[0;32mI (803) SENSOR: Sensor module initialized (16 pins, emulation)[0m
+[0;32mI (803) MODULE: Init OK: sensor_min[0m
+[0;32mI (803) PIN_MGR: Pin Manager module init[0m
+[0;32mI (813) MODULE: Init OK: pin_manager[0m
+[0;32mI (813) CORE: System ready! Heap: 205 KB[0m
+[0;32mI (823) WIFI: Wi-Fi Manager init[0m
+[0;32mI (833) wifi:wifi driver task: 3ffbd908, prio:23, stack:6656, core=0[0m
+[0;32mI (843) wifi:wifi firmware version: 0947e8b[0m
+[0;32mI (843) wifi:wifi certification version: v7.0[0m
+[0;32mI (843) wifi:config NVS flash: enabled[0m
+[0;32mI (843) wifi:config nano formatting: disabled[0m
+[0;32mI (853) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (853) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (863) wifi:Init management short buffer num: 32[0m
+[0;32mI (863) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (873) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (873) wifi:Init static rx buffer num: 10[0m
+[0;32mI (873) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (883) wifi_init: rx ba win: 6[0m
+[0;32mI (883) wifi_init: accept mbox: 6[0m
+[0;32mI (893) wifi_init: tcpip mbox: 32[0m
+[0;32mI (893) wifi_init: udp mbox: 6[0m
+[0;32mI (893) wifi_init: tcp mbox: 6[0m
+[0;32mI (903) wifi_init: tcp tx win: 5760[0m
+[0;32mI (903) wifi_init: tcp rx win: 5760[0m
+[0;32mI (913) wifi_init: tcp mss: 1440[0m
+[0;32mI (913) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (913) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (923) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (1013) wifi:mode : sta (28:05:a5:34:d7:44)[0m
+[0;32mI (1013) wifi:enable tsf[0m
+[0;32mI (1013) WIFI: Connecting to Wi-Fi: Keenetic-9598...[0m
+[0;32mI (1033) wifi:new:<6,2>, old:<1,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1033) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2033) wifi:state: auth -> init (0x200)[0m
+[0;32mI (2053) wifi:new:<6,0>, old:<6,2>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4483) wifi:new:<6,2>, old:<6,0>, ap:<255,255>, sta:<6,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4483) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (4503) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (4513) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (4533) wifi:connected with Keenetic-9598, aid = 8, channel 6, 40D, bssid = 9c:56:36:1b:80:f4[0m
+[0;32mI (4533) wifi:security: WPA2-PSK, phy: bgn, rssi: -69, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (4543) wifi:pm start, type: 1[0m
+
+[0;32mI (4543) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4553) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (5963) esp_netif_handlers: sta ip: 192.168.1.133, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (5963) WIFI: ✅ Got IP: 192.168.1.133[0m
+[0;32mI (5963) WIFI: ✅ Connected![0m
+[0;32mI (5963) MODULE: Starting all modules...[0m
+[0;32mI (5973) GPIO: GPIO started[0m
+[0;32mI (5973) MODULE: Start OK: gpio[0m
+[0;32mI (5983) WEBSERVER: ✅ Webserver started on port 80[0m
+[0;32mI (5983) MODULE: Start OK: web[0m
+[0;32mI (5983) TEST: Started[0m
+[0;32mI (5993) MODULE: Start OK: test[0m
+[0;32mI (5993) SENSOR: Sensor module started[0m
+[0;32mI (6003) MODULE: Start OK: sensor_min[0m
+[0;32mI (6003) PIN_MGR: Pin Manager module started[0m
+[0;32mI (6003) MODULE: Start OK: pin_manager[0m
+[0;32mI (6013) MAIN: Applying saved pin configurations...[0m
+[0;32mI (6013) MAIN: No saved pin configurations found, using defaults[0m
+[0;32mI (6023) MAIN: System ready![0m
+[0;32mI (6023) MAIN: ✅ System ready! Heap: 151 KB[0m
+[0;32mI (7623) wifi:<ba-add>idx:0 (ifx:0, 9c:56:36:1b:80:f4), tid:0, ssn:2, winSize:64[0m

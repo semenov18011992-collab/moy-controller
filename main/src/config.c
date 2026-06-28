@@ -1,54 +1,91 @@
 #include "config.h"
-#include "logger.h"
-#include <string.h>
+#include "esp_log.h"
 #include "nvs_flash.h"
 #include "nvs.h"
+#include <string.h>
 
+static const char *TAG = "CONFIG";
+
+// Глобальная конфигурация
 static config_t g_config = {
-    .wifi_ssid = "MyController",
-    .wifi_password = "12345678",
-    .device_name = "MOY-CONTROLLER",
-    .web_port = 80,
-    .enable_test_module = true
+    .enable_test_module = true,
+    .enable_gpio_module = true,
+    .enable_web_module = true,
+    .test_value = 0
 };
-
-void config_load(void) {
-    nvs_handle_t handle;
-    esp_err_t err = nvs_open("config", NVS_READONLY, &handle);
-    if (err == ESP_OK) {
-        size_t len;
-        nvs_get_str(handle, "wifi_ssid", g_config.wifi_ssid, &len);
-        nvs_get_str(handle, "wifi_pass", g_config.wifi_password, &len);
-        nvs_get_str(handle, "dev_name", g_config.device_name, &len);
-        uint16_t port;
-        if (nvs_get_u16(handle, "web_port", &port) == ESP_OK)
-            g_config.web_port = port;
-        uint8_t test_en;
-        if (nvs_get_u8(handle, "test_en", &test_en) == ESP_OK)
-            g_config.enable_test_module = (test_en != 0);
-        nvs_close(handle);
-        LOG_INFO("CONFIG", "Configuration loaded");
-    } else {
-        LOG_WARN("CONFIG", "No config found, using defaults");
-        config_save();
-    }
-}
-
-void config_save(void) {
-    nvs_handle_t handle;
-    esp_err_t err = nvs_open("config", NVS_READWRITE, &handle);
-    if (err == ESP_OK) {
-        nvs_set_str(handle, "wifi_ssid", g_config.wifi_ssid);
-        nvs_set_str(handle, "wifi_pass", g_config.wifi_password);
-        nvs_set_str(handle, "dev_name", g_config.device_name);
-        nvs_set_u16(handle, "web_port", g_config.web_port);
-        nvs_set_u8(handle, "test_en", g_config.enable_test_module ? 1 : 0);
-        nvs_commit(handle);
-        nvs_close(handle);
-        LOG_INFO("CONFIG", "Configuration saved");
-    }
-}
 
 config_t* config_get(void) {
     return &g_config;
+}
+
+int config_get_int(const char *key, int default_value) {
+    if (strcmp(key, "test_value") == 0) {
+        return g_config.test_value;
+    }
+    if (strcmp(key, "enable_test_module") == 0) {
+        return g_config.enable_test_module ? 1 : 0;
+    }
+    if (strcmp(key, "enable_gpio_module") == 0) {
+        return g_config.enable_gpio_module ? 1 : 0;
+    }
+    if (strcmp(key, "enable_web_module") == 0) {
+        return g_config.enable_web_module ? 1 : 0;
+    }
+    return default_value;
+}
+
+bool config_load(void) {
+    nvs_handle_t handle;
+    esp_err_t err = nvs_open("config", NVS_READONLY, &handle);
+    if (err != ESP_OK) {
+        ESP_LOGI(TAG, "No config in NVS, using defaults");
+        return true;
+    }
+    
+    // Загружаем значения (используем int32_t для совместимости)
+    int32_t val32;
+    
+    err = nvs_get_i32(handle, "test_value", &val32);
+    if (err == ESP_OK) {
+        g_config.test_value = (int)val32;
+    }
+    
+    uint8_t val8;
+    err = nvs_get_u8(handle, "test_module", &val8);
+    if (err == ESP_OK) {
+        g_config.enable_test_module = (val8 != 0);
+    }
+    
+    err = nvs_get_u8(handle, "gpio_module", &val8);
+    if (err == ESP_OK) {
+        g_config.enable_gpio_module = (val8 != 0);
+    }
+    
+    err = nvs_get_u8(handle, "web_module", &val8);
+    if (err == ESP_OK) {
+        g_config.enable_web_module = (val8 != 0);
+    }
+    
+    nvs_close(handle);
+    return true;
+}
+
+bool config_save(void) {
+    nvs_handle_t handle;
+    esp_err_t err = nvs_open("config", NVS_READWRITE, &handle);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to open NVS");
+        return false;
+    }
+    
+    // Сохраняем значения
+    nvs_set_i32(handle, "test_value", (int32_t)g_config.test_value);
+    nvs_set_u8(handle, "test_module", g_config.enable_test_module ? 1 : 0);
+    nvs_set_u8(handle, "gpio_module", g_config.enable_gpio_module ? 1 : 0);
+    nvs_set_u8(handle, "web_module", g_config.enable_web_module ? 1 : 0);
+    
+    nvs_commit(handle);
+    nvs_close(handle);
+    
+    return true;
 }

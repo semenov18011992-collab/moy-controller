@@ -1,35 +1,43 @@
-#ifndef MODULE_H
-#define MODULE_H
-
-#include <stdbool.h>
+#pragma once
+#include "esp_err.h"
 #include <stdint.h>
+#include <stdbool.h>
 
-typedef enum {
-    MODULE_STATE_UNLOADED = 0,
-    MODULE_STATE_LOADED,
-    MODULE_STATE_INITIALIZED,
-    MODULE_STATE_RUNNING,
-    MODULE_STATE_ERROR
-} module_state_t;
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-typedef struct {
+// Структура модуля
+typedef struct module_s {
     const char* name;
-    const char* version;
-    bool (*init)(void);
-    bool (*start)(void);
+    esp_err_t (*init)(void);
+    esp_err_t (*start)(void);
     void (*update)(void);
-    void (*stop)(void);
-    module_state_t state;
-    void* context;
+    esp_err_t (*stop)(void);
+    bool enabled;
+    void* user_data;
 } module_t;
 
-bool module_register(module_t* mod);
-bool module_init_all(void);
-bool module_start_all(void);
-void module_update_all(void);
-void module_stop_all(void);
-module_t* module_get(const char* name);
-bool module_is_enabled(const char* name);
-void module_register_builtins(void);
+#define MAX_MODULES 16
 
+// Регистрация модуля
+bool module_register(module_t* mod);
+
+// Инициализация всех модулей
+esp_err_t module_init_all(void);
+
+// Запуск всех модулей
+esp_err_t module_start_all(void);
+
+// Обновление всех модулей
+void module_update_all(void);
+
+// Остановка всех модулей
+esp_err_t module_stop_all(void);
+
+// Регистрация встроенных модулей
+void module_register_builtins(void);   // ← ДОБАВЛЕНО
+
+#ifdef __cplusplus
+}
 #endif

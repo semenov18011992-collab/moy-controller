@@ -1,0 +1,13 @@
+Command: ninja clean
+[0/1] Re-running CMake...
+-- Minimal build - OFF
+-- ccache will be used for faster recompilation
+-- Building ESP-IDF components for target esp32
+NOTICE: Processing 2 dependencies:
+NOTICE: [1/2] espressif/esp_hosted (2.12.9)
+NOTICE: [2/2] idf (5.5.4)
+-- Using new driver components (IDF >= 5.0)
+-- ESP-TEE is currently supported only on the esp32c6;esp32h2;esp32c5 SoCs
+-- Configuring incomplete, errors occurred!
+FAILED: build.ninja 
+C:\Espressif\tools\cmake\3.30.2\bin\cmake.exe --regenerate-during-build -SC:\Users\User\Documents\GitHub\moy-controller -BC:\Users\User\Documents\GitHub\moy-controller\build

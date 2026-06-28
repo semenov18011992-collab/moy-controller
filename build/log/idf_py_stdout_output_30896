@@ -1,0 +1,63 @@
+Command: ninja clean
+[0/1] Re-running CMake...
+-- Minimal build - OFF
+-- ccache will be used for faster recompilation
+-- Building ESP-IDF components for target esp32
+NOTICE: Processing 2 dependencies:
+NOTICE: [1/2] espressif/esp_hosted (2.12.9)
+NOTICE: [2/2] idf (5.5.4)
+-- Using new driver components (IDF >= 5.0)
+-- ESP-TEE is currently supported only on the esp32c6;esp32h2;esp32c5 SoCs
+-- Project sdkconfig file C:/Users/User/Documents/GitHub/moy-controller/sdkconfig
+Loading defaults file C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults...
+C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults:5 CONFIG_ESP_TASK_WDT was replaced with CONFIG_ESP_TASK_WDT_INIT 
+warning: unknown kconfig symbol 'ESP_REV_MIN' assigned to '0' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'SPIFFS_MAX_FILES' assigned to '50' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'ESP_WIFI_STA_DISCONNECT_PM_ENABLE' assigned to 'y' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'ETH_PHY_MODEL_LAN8720' assigned to 'y' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'USB_ENABLED' assigned to 'y' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'USB_CDC_SUPPORTED' assigned to 'y' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'USB_HID_SUPPORTED' assigned to 'y' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'I2C_MASTER_SUPPORT' assigned to 'y' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'I2C_QUEUE_SIZE' assigned to '100' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'I2S_SUPPORTED' assigned to 'y' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'I2S_DMA_BUFFER_COUNT' assigned to '8' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'I2S_DMA_BUFFER_SIZE' assigned to '1024' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'ADC_CONTINUOUS_MODE' assigned to 'y' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'MB_COMM_MODE_RTU_EN' assigned to 'y' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'MB_COMM_MODE_TCP_EN' assigned to 'y' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'MB_TIMER_PORT_ENABLED' assigned to 'y' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'MB_MASTER_TIMEOUT_MS_MS' assigned to '150' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'MB_MASTER_QUEUE_SIZE' assigned to '20' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'MB_SLAVE_QUEUE_SIZE' assigned to '20' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'MB_PORT_TASK_STACK_SIZE' assigned to '4096' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'LWIP_SNTP' assigned to 'y' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'SNTP_TIME_SERVERS' assigned to '"pool.ntp.org;time.google.com;ru.pool.ntp.org"' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'MDNS_ENABLE' assigned to 'y' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'MDNS_MAX_SERVICES' assigned to '10' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+warning: unknown kconfig symbol 'MDNS_TASK_PRIORITY' assigned to '1' in C:/Users/User/Documents/GitHub/moy-controller/sdkconfig.defaults
+-- Compiler supported targets: xtensa-esp-elf
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- USING O3
+-- App "moy_controller" version: v4.0-dirty
+-- Adding linker script C:/Users/User/Documents/GitHub/moy-controller/build/esp-idf/esp_system/ld/memory.ld
+-- Adding linker script C:/Users/User/Documents/GitHub/moy-controller/build/esp-idf/esp_system/ld/sections.ld.in
+-- Adding linker script C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_rom/esp32/ld/esp32.rom.ld
+-- Adding linker script C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_rom/esp32/ld/esp32.rom.api.ld
+-- Adding linker script C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_rom/esp32/ld/esp32.rom.libgcc.ld
+-- Adding linker script C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_rom/esp32/ld/esp32.rom.newlib-data.ld
+-- Adding linker script C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_rom/esp32/ld/esp32.rom.syscalls.ld
+-- Adding linker script C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_rom/esp32/ld/esp32.rom.libc-funcs.ld
+-- Adding linker script C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_rom/esp32/ld/esp32.rom.newlib-reent-funcs.ld
+-- Adding linker script C:/Espressif/frameworks/esp-idf-v5.5.4/components/soc/esp32/ld/esp32.peripherals.ld
+-- Using new driver components (IDF >= 5.0)
+-- Configuring incomplete, errors occurred!
+FAILED: build.ninja 
+C:\Espressif\tools\cmake\3.30.2\bin\cmake.exe --regenerate-during-build -SC:\Users\User\Documents\GitHub\moy-controller -BC:\Users\User\Documents\GitHub\moy-controller\build

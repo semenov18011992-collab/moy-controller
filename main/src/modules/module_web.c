@@ -1,29 +1,33 @@
 #include "module.h"
-#include "logger.h"
-#include "webserver.h"
+#include "esp_log.h"
 
-static bool web_init(void) { 
-    LOG_INFO("WEB", "Init"); 
-    return true; 
+static const char *TAG = "WEB_MODULE";
+
+static esp_err_t web_init(void) {
+    ESP_LOGI(TAG, "Web module init");
+    return ESP_OK;
 }
 
-static bool web_start(void) { 
-    return webserver_start(); 
+static esp_err_t web_start(void) {
+    ESP_LOGI(TAG, "Web module start");
+    return ESP_OK;
 }
 
-static void web_update(void) { 
-    /* nothing */ 
+static void web_update(void) {
+    // Обновление веб-модуля
 }
 
-static void web_stop(void) { 
-    webserver_stop(); 
+static esp_err_t web_stop(void) {
+    ESP_LOGI(TAG, "Web module stop");
+    return ESP_OK;
 }
 
+// Регистрация модуля
 module_t web_module = {
     .name = "web",
-    .version = "1.0.0",
     .init = web_init,
     .start = web_start,
     .update = web_update,
-    .stop = web_stop
+    .stop = web_stop,
+    .enabled = true
 };

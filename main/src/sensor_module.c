@@ -6,7 +6,7 @@
 #include <time.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "driver/gpio.h"      // <-- добавить для GPIO_NUM_4
+#include "driver/gpio.h"
 #include "ds18b20.h"
 
 #define TAG "SENSOR"
@@ -155,8 +155,12 @@ char* sensor_set_pin(uint8_t pin_id, float value) {
     return response;
 }
 
-static bool sensor_init(void) {
-    if (initialized) return true;
+// ============================================
+// ФУНКЦИИ МОДУЛЯ (ИСПРАВЛЕНЫ)
+// ============================================
+
+static esp_err_t sensor_init(void) {
+    if (initialized) return ESP_OK;   // ← ИСПРАВЛЕНО: true → ESP_OK
     
     int sensor_count = ds18b20_init(DS18B20_GPIO);
     
@@ -189,12 +193,12 @@ static bool sensor_init(void) {
     
     initialized = true;
     ESP_LOGI(TAG, "Sensor module initialized (%d pins, %s)", TRACKED_PINS, use_real_sensors ? "DS18B20" : "emulation");
-    return true;
+    return ESP_OK;
 }
 
-static bool sensor_start(void) {
+static esp_err_t sensor_start(void) {   // ← ИСПРАВЛЕНО: bool → esp_err_t
     ESP_LOGI(TAG, "Sensor module started");
-    return true;
+    return ESP_OK;   // ← ИСПРАВЛЕНО: true → ESP_OK
 }
 
 static void sensor_update(void) {
@@ -223,10 +227,19 @@ static void sensor_update(void) {
     }
 }
 
+static esp_err_t sensor_stop(void) {   // ← ДОБАВЛЕНО
+    ESP_LOGI(TAG, "Sensor module stopped");
+    return ESP_OK;
+}
+
+// ============================================
+// РЕГИСТРАЦИЯ МОДУЛЯ
+// ============================================
 module_t sensor_module = {
-    .name = "sensor_min",
-    .version = "v1.0.0",
+    .name = "sensor",
     .init = sensor_init,
     .start = sensor_start,
-    .update = sensor_update
-};   // <-- точка с запятой обязательна
+    .update = sensor_update,
+    .stop = sensor_stop,
+    .enabled = true
+};

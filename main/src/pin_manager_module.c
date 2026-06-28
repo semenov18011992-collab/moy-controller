@@ -1,27 +1,39 @@
 #include "module.h"
 #include "esp_log.h"
-#include <stdbool.h>
+#include "esp_err.h"
 
-#define TAG "PIN_MGR"
+static const char *TAG = "PIN_MANAGER";
 
-static bool pin_manager_init(void) {
+// ============================================
+// ФУНКЦИИ МОДУЛЯ
+// ============================================
+static esp_err_t pin_manager_init(void) {
     ESP_LOGI(TAG, "Pin Manager module init");
-    return true;
+    return ESP_OK;
 }
 
-static bool pin_manager_start(void) {
-    ESP_LOGI(TAG, "Pin Manager module started");
-    return true;
+static esp_err_t pin_manager_start(void) {
+    ESP_LOGI(TAG, "Pin Manager module start");
+    return ESP_OK;
 }
 
 static void pin_manager_update(void) {
-    // Здесь можно добавить логику обновления пинов
+    // Периодическое обновление
 }
 
+static esp_err_t pin_manager_stop(void) {
+    ESP_LOGI(TAG, "Pin Manager module stop");
+    return ESP_OK;
+}
+
+// ============================================
+// РЕГИСТРАЦИЯ МОДУЛЯ
+// ============================================
 module_t pin_manager_module = {
     .name = "pin_manager",
-    .version = "v1.0.0",
     .init = pin_manager_init,
     .start = pin_manager_start,
-    .update = pin_manager_update
+    .update = pin_manager_update,
+    .stop = pin_manager_stop,
+    .enabled = true
 };

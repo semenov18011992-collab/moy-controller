@@ -98,3 +98,37 @@ module_t pin_manager_module = {
     sprintf(json, "{\"pins\":[]}");
     return json;
 }
+// ============================================
+// ФУНКЦИИ ДЛЯ ВЕБ-СЕРВЕРА (временные заглушки)
+// ============================================
+
+esp_err_t config_save_pin(const pin_config_t *cfg) {
+    // TODO: Реализовать сохранение в NVS
+    (void)cfg;
+    return ESP_OK;
+}
+
+esp_err_t config_load_all(pin_config_t *configs, uint8_t *count) {
+    // TODO: Реализовать загрузку из NVS
+    (void)configs;
+    *count = 0;
+    return ESP_OK;
+}
+
+esp_err_t config_delete_pin(uint8_t pin) {
+    // TODO: Реализовать удаление из NVS
+    (void)pin;
+    return ESP_OK;
+}
+
+esp_err_t config_apply_pin(const pin_config_t *cfg) {
+    // TODO: Реализовать применение конфигурации
+    (void)cfg;
+    return ESP_OK;
+}
+
+esp_err_t config_load_pin(uint8_t pin, pin_config_t *cfg) {
+    // TODO: Реализовать загрузку конкретного пина
+    (void)pin;
+    (void)cfg;
+    return ESP_ERR_NOT_FOUND;
